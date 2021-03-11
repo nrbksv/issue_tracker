@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% for issue in issues %}
+    <div class="card mt-2">
+        <div class="card-header d-flex flex-row justify-content-between card-h">
+            <div>
+               {{ issue.status }}  ({{ issue.type_issue }})
+            </div>
+        </div>
+        <div class="card-body card-b">
+          <p class="card-text">{{ issue.summary }}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
