@@ -11,6 +11,7 @@
             <div>
                 <a class="icons align-middle mr-2" href="{% url 'issues-list' %}"><i class="far fa-list-alt"></i></a>
                 <a class="icons" href="{% url 'issue-update' issue.id %}"><i class="far fa-edit"></i></a>
+                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#modal"><i class="far fa-trash-alt"></i></button>
             </div>
         </div>
         <div class="card-body card-b">
@@ -19,4 +20,5 @@
           <p class="card-text">{{ issue.description }}</p>
         </div>
     </div>
+    {% include 'modal.html' %}
 {% endblock %}

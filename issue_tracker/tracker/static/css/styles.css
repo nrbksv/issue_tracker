@@ -26,9 +26,11 @@
 }
 
 .icon-list{
-    font-size: 25px;
+    font-size: 30px;
 }
-
+.i-btn {
+    background-color: #757474;
+}
 .form-error {
     color: red;
     font-size: 12px;

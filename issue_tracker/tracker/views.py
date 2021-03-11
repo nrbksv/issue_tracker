@@ -63,3 +63,9 @@ class IssueUpdate(View):
             return redirect('issue-detail', pk=issue.id)
         return render(request, 'issue_update.html', {'form': form})
 
+
+class IssueDelete(View):
+    def post(self, request, pk):
+        issue = get_object_or_404(Issue, id=pk)
+        issue.delete()
+        return redirect('issues-list')
