@@ -5,6 +5,7 @@
     <div class="card mt-2">
         <div class="card-header d-flex flex-row justify-content-between card-h">
             <div>
+                <a class="icons mr-2" href="{% url 'new-issue' %}"><i class="far fa-plus-square"></i></a>
                {{ issue.status }}  ({{ issue.type_issue }})
             </div>
             <div>
