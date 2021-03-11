@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
-{% load static %}
 
 
 {% block content %}
-    {% for issue in issues %}
     <div class="card mt-2">
         <div class="card-header d-flex flex-row justify-content-between card-h">
             <div>
                {{ issue.status }}  ({{ issue.type_issue }})
             </div>
             <div>
-                <a class="icons" href="{% url 'issue-detail' issue.id %}">Подробнее >> </a>
+                <a class="icons icon-list align-middle" href="{% url 'issues-list' %}"><i class="far fa-list-alt"></i></a>
             </div>
         </div>
         <div class="card-body card-b">
           <p class="card-text">{{ issue.summary }}</p>
+          <hr>
+          <p class="card-text">{{ issue.description }}</p>
         </div>
     </div>
-    {% endfor %}
 {% endblock %}
