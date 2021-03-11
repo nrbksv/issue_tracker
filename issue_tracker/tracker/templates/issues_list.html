@@ -11,7 +11,8 @@
                {{ issue.status }}  ({{ issue.type_issue }})
             </div>
             <div>
-                <a class="icons" href="{% url 'issue-detail' issue.id %}">Подробнее >> </a>
+                <a class="link-text mr-2" href="{% url 'issue-detail' issue.id %}">Подробнее >> </a>
+                <a class="icons" href="{% url 'issue-update' issue.id %}"><i class="far fa-edit"></i></a>
             </div>
         </div>
         <div class="card-body card-b">

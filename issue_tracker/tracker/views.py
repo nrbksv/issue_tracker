@@ -39,3 +39,27 @@ class NewIssue(View):
             return redirect('issue-detail', pk=issue.id)
         return render(request, 'new_issue.html', {'form': form})
 
+
+class IssueUpdate(View):
+    def get(self, request, pk):
+        issue = get_object_or_404(Issue, id=pk)
+        form = IssueForm(initial={
+            'status': issue.status,
+            'type_issue': issue.type_issue,
+            'summary': issue.summary,
+            'description': issue.description
+        })
+        return render(request, 'issue_update.html', {'form': form, 'issue': issue})
+
+    def post(self, request, pk):
+        issue = get_object_or_404(Issue, id=pk)
+        form = IssueForm(data=request.POST)
+        if form.is_valid():
+            issue.status=form.cleaned_data.get('status')
+            issue.type_issue=form.cleaned_data.get('type_issue')
+            issue.summary=form.cleaned_data.get('summary')
+            issue.description=form.cleaned_data.get('description')
+            issue.save()
+            return redirect('issue-detail', pk=issue.id)
+        return render(request, 'issue_update.html', {'form': form})
+

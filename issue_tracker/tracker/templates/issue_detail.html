@@ -9,7 +9,8 @@
                {{ issue.status }}  ({{ issue.type_issue }})
             </div>
             <div>
-                <a class="icons icon-list align-middle" href="{% url 'issues-list' %}"><i class="far fa-list-alt"></i></a>
+                <a class="icons align-middle mr-2" href="{% url 'issues-list' %}"><i class="far fa-list-alt"></i></a>
+                <a class="icons" href="{% url 'issue-update' issue.id %}"><i class="far fa-edit"></i></a>
             </div>
         </div>
         <div class="card-body card-b">

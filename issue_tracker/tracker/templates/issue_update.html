@@ -1,0 +1,16 @@
+{% extends 'card_base.html' %}
+
+
+{% block form-header %}
+    <h3 class="">Редактировать задачу</h3>
+{% endblock %}
+
+{% block form %}
+    <form action="{% url 'issue-update' issue.id %}" method="POST">
+        {% include 'form.html' %}
+        <div class="text-right">
+            <input class="btn btn-secondary" type="submit" value="Сохранить изменения">
+            <a class="btn btn-danger mr-2" href="{% url 'issues-list' %}">Отменить</a>
+        </div>
+    </form>
+{% endblock %}
