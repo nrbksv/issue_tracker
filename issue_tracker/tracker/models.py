@@ -19,8 +19,7 @@ class Issue(models.Model):
 
 
 class Type(models.Model):
-    TYPE_CHOICES = [('task', 'Задача'), ('bug', 'Ошибка'), ('enhancement', 'Улучшение')]
-    type_issue = models.CharField(max_length=30, null=False, blank=False, choices=TYPE_CHOICES, verbose_name='Тип')
+    type_issue = models.CharField(max_length=30, null=False, blank=False, verbose_name='Тип')
 
     class Meta:
         db_table = 'types'
@@ -32,8 +31,7 @@ class Type(models.Model):
 
 
 class Status(models.Model):
-    STATUS_CHOICES = [('new', 'Новый'), ('in_progress', 'В процессе'), ('done', 'Сделано')]
-    status = models.CharField(max_length=30, blank=False, null=False, choices=STATUS_CHOICES, verbose_name='Статус')
+    status = models.CharField(max_length=30, blank=False, null=False, verbose_name='Статус')
 
     class Meta:
         db_table = 'statuses'
