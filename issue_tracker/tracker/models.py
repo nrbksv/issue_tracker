@@ -4,8 +4,8 @@ from django.db import models
 class Issue(models.Model):
     summary = models.CharField(max_length=300, null=False, blank=False, verbose_name='Заголовок')
     description = models.TextField(max_length=3000, null=True, blank=True)
-    status = models.ForeignKey('tracker.Status', on_delete=models.PROTECT, verbose_name='Статус')
-    type_issue = models.ForeignKey('tracker.Type', on_delete=models.PROTECT, verbose_name='Тип')
+    status = models.ForeignKey('tracker.Status', on_delete=models.PROTECT, related_name='issues', verbose_name='Статус')
+    types = models.ManyToManyField('tracker.Type', related_name='issues', verbose_name='Типы задач')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -15,7 +15,7 @@ class Issue(models.Model):
         verbose_name_plural = 'Задачи'
 
     def __str__(self):
-        return f'{self.status}{self.type_issue}{self.summary}{self.description}'
+        return f'{self.status}{self.types}{self.summary}{self.description}'
 
 
 class Type(models.Model):
