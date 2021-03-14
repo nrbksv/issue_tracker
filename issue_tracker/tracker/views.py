@@ -30,12 +30,13 @@ class NewIssue(View):
     def post(self, request):
         form = IssueForm(data=request.POST)
         if form.is_valid():
+            types = form.cleaned_data.pop('type_issue')
             issue = Issue.objects.create(
-                type_issue=form.cleaned_data.get('type_issue'),
                 status=form.cleaned_data.get('status'),
                 summary=form.cleaned_data.get('summary'),
                 description=form.cleaned_data.get('description')
             )
+            issue.types.set(types)
             return redirect('issue-detail', pk=issue.id)
         return render(request, 'new_issue.html', {'form': form})
 
