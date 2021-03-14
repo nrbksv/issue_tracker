@@ -46,7 +46,7 @@ class IssueUpdate(View):
         issue = get_object_or_404(Issue, id=pk)
         form = IssueForm(initial={
             'status': issue.status,
-            'type_issue': issue.type_issue,
+            'type_issue': issue.types.all(),
             'summary': issue.summary,
             'description': issue.description
         })
@@ -56,11 +56,12 @@ class IssueUpdate(View):
         issue = get_object_or_404(Issue, id=pk)
         form = IssueForm(data=request.POST)
         if form.is_valid():
-            issue.status=form.cleaned_data.get('status')
-            issue.type_issue=form.cleaned_data.get('type_issue')
-            issue.summary=form.cleaned_data.get('summary')
-            issue.description=form.cleaned_data.get('description')
+            types = form.cleaned_data.pop('type_issue')
+            issue.status = form.cleaned_data.get('status')
+            issue.summary = form.cleaned_data.get('summary')
+            issue.description = form.cleaned_data.get('description')
             issue.save()
+            issue.types.set(types)
             return redirect('issue-detail', pk=issue.id)
         return render(request, 'issue_update.html', {'form': form})
 
