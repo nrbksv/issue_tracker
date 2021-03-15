@@ -12,7 +12,8 @@ def types_transfer(apps, schema_editor):
 def rollback_transfer(apps, schema_editor):
     Issue = apps.get_model('tracker.Issue')
     for issue in Issue.objects.all():
-        issue.type_issue.set(issue.types.all())
+        issue.type_issue = issue.types.first()
+        issue.save()
 
 
 class Migration(migrations.Migration):
