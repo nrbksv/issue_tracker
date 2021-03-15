@@ -30,7 +30,7 @@ class NewIssue(View):
     def post(self, request):
         form = IssueForm(data=request.POST)
         if form.is_valid():
-            types = form.cleaned_data.pop('type_issue')
+            types = form.cleaned_data.pop('types')
             issue = Issue.objects.create(
                 status=form.cleaned_data.get('status'),
                 summary=form.cleaned_data.get('summary'),
@@ -46,7 +46,7 @@ class IssueUpdate(View):
         issue = get_object_or_404(Issue, id=pk)
         form = IssueForm(initial={
             'status': issue.status,
-            'type_issue': issue.types.all(),
+            'types': issue.types.all(),
             'summary': issue.summary,
             'description': issue.description
         })
@@ -56,7 +56,7 @@ class IssueUpdate(View):
         issue = get_object_or_404(Issue, id=pk)
         form = IssueForm(data=request.POST)
         if form.is_valid():
-            types = form.cleaned_data.pop('type_issue')
+            types = form.cleaned_data.pop('types')
             issue.status = form.cleaned_data.get('status')
             issue.summary = form.cleaned_data.get('summary')
             issue.description = form.cleaned_data.get('description')

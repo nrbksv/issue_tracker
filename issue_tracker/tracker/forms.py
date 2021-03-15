@@ -1,13 +1,24 @@
-from django.forms import widgets
-from django import forms
+from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple
+
+from tracker.models import Issue
 
 
-from tracker.models import Issue, Status, Type
+class IssueForm(ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['status', 'types', 'summary', 'description']
 
-
-class IssueForm(forms.Form):
-    model = Issue
-    status = forms.ModelChoiceField(queryset=Status.objects.all(), empty_label=None, required=True, widget=widgets.Select(attrs={'class': 'form-control'}), label='Статус')
-    type_issue = forms.ModelMultipleChoiceField(queryset=Type.objects.all(), required=True, widget=widgets.CheckboxSelectMultiple(attrs={'class': 'list-unstyled'}), label='Тип')
-    summary = forms.CharField(max_length=300, required=True, widget=widgets.TextInput(attrs={'class': 'form-control'}), label='Заголовок')
-    description = forms.CharField(max_length=3000, widget=widgets.Textarea(attrs={'class': 'form-control'}), required=False, label='Описание')
+        widgets = {
+            'status': Select(attrs={
+                'class': 'form-control',
+            }),
+            'types': CheckboxSelectMultiple(attrs={
+                'class': 'list-unstyled'
+            }),
+            'summary': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'description': Textarea(attrs={
+                'class': 'form-control'
+            })
+        }
