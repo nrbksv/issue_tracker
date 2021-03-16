@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView, View
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.views.generic import TemplateView, View, FormView
 
-from tracker.models import Issue, Status, Type
+from tracker.models import Issue
 from tracker.forms import IssueForm
 
 
@@ -21,24 +21,16 @@ class IssueDetail(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-class NewIssue(View):
+class NewIssue(FormView):
+    template_name = 'new_issue.html'
+    form_class = IssueForm
 
-    def get(self, request):
-        form = IssueForm()
-        return render(request, 'new_issue.html', {'form': form})
+    def form_valid(self, form):
+        self.issue = form.save()
+        return super().form_valid(form)
 
-    def post(self, request):
-        form = IssueForm(data=request.POST)
-        if form.is_valid():
-            types = form.cleaned_data.pop('types')
-            issue = Issue.objects.create(
-                status=form.cleaned_data.get('status'),
-                summary=form.cleaned_data.get('summary'),
-                description=form.cleaned_data.get('description')
-            )
-            issue.types.set(types)
-            return redirect('issue-detail', pk=issue.id)
-        return render(request, 'new_issue.html', {'form': form})
+    def get_success_url(self):
+        return reverse('issue-detail', kwargs={'pk': self.issue.pk})
 
 
 class IssueUpdate(View):
@@ -46,7 +38,7 @@ class IssueUpdate(View):
         issue = get_object_or_404(Issue, id=pk)
         form = IssueForm(initial={
             'status': issue.status,
-            'types': issue.types.all(),
+            'type_issue': issue.types.all(),
             'summary': issue.summary,
             'description': issue.description
         })
@@ -56,7 +48,7 @@ class IssueUpdate(View):
         issue = get_object_or_404(Issue, id=pk)
         form = IssueForm(data=request.POST)
         if form.is_valid():
-            types = form.cleaned_data.pop('types')
+            types = form.cleaned_data.pop('type_issue')
             issue.status = form.cleaned_data.get('status')
             issue.summary = form.cleaned_data.get('summary')
             issue.description = form.cleaned_data.get('description')
