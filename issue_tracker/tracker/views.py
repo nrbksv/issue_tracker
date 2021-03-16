@@ -33,29 +33,34 @@ class NewIssue(FormView):
         return reverse('issue-detail', kwargs={'pk': self.issue.pk})
 
 
-class IssueUpdate(View):
-    def get(self, request, pk):
-        issue = get_object_or_404(Issue, id=pk)
-        form = IssueForm(initial={
-            'status': issue.status,
-            'type_issue': issue.types.all(),
-            'summary': issue.summary,
-            'description': issue.description
-        })
-        return render(request, 'issue_update.html', {'form': form, 'issue': issue})
+class IssueUpdate(FormView):
+    template_name = 'issue_update.html'
+    form_class = IssueForm
 
-    def post(self, request, pk):
-        issue = get_object_or_404(Issue, id=pk)
-        form = IssueForm(data=request.POST)
-        if form.is_valid():
-            types = form.cleaned_data.pop('type_issue')
-            issue.status = form.cleaned_data.get('status')
-            issue.summary = form.cleaned_data.get('summary')
-            issue.description = form.cleaned_data.get('description')
-            issue.save()
-            issue.types.set(types)
-            return redirect('issue-detail', pk=issue.id)
-        return render(request, 'issue_update.html', {'form': form})
+    def dispatch(self, request, *args, **kwargs):
+        self.issue = self.get_object()
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['issue'] = self.issue
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.issue
+        return kwargs
+
+    def form_valid(self, form):
+        self.issue = form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('issue-detail', kwargs={'pk': self.issue.id})
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Issue, id=pk)
 
 
 class IssueDelete(View):
