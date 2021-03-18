@@ -10,7 +10,7 @@ class IssueForm(ModelForm):
 
         widgets = {
             'status': Select(attrs={
-                'class': 'form-control',
+                'class': 'form-control'
             }),
             'types': CheckboxSelectMultiple(attrs={
                 'class': 'list-unstyled'

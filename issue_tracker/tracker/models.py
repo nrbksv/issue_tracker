@@ -1,10 +1,28 @@
 from django.db import models
+from django.core.validators import MinLengthValidator, MaxLengthValidator
 
 
 class Issue(models.Model):
-    summary = models.CharField(max_length=300, null=False, blank=False, verbose_name='Заголовок')
-    description = models.TextField(max_length=3000, null=True, blank=True)
-    status = models.ForeignKey('tracker.Status', on_delete=models.PROTECT, related_name='issues', verbose_name='Статус')
+    summary = models.CharField(
+        max_length=300,
+        null=False,
+        blank=False,
+        validators=[MaxLengthValidator(300), MinLengthValidator(6)],
+        verbose_name='Заголовок'
+    )
+    description = models.TextField(
+        max_length=3000,
+        validators=[MaxLengthValidator(3000), MinLengthValidator(6)],
+        null=True,
+        blank=True,
+        verbose_name='Описание'
+    )
+    status = models.ForeignKey(
+        'tracker.Status',
+        on_delete=models.PROTECT,
+        related_name='issues',
+        verbose_name='Статус'
+    )
     types = models.ManyToManyField('tracker.Type', related_name='issues', verbose_name='Типы задач')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
