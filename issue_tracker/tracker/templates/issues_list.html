@@ -3,14 +3,16 @@
 
 
 {% block content %}
-    {% for issue in issues %}
-    <div class="card mt-2">}
-        <div class="card-header d-flex flex-row justify-content-between card-h">
-            {% if not issue %}
-                <div>
-                <a class="icons mr-2" href="{% url 'new-issue' %}"><i class="far fa-plus-square"></i></a>
+    {% if not issues %}
+        <div class="card">
+            <div class="card-header card-h">
+            <a class="icons mr-2" href="{% url 'new-issue' %}"><i class="far fa-plus-square"></i></a>
             </div>
-            {% endif %}
+        </div>
+    {% endif %}
+    {% for issue in issues %}
+    <div class="card mt-2">
+        <div class="card-header d-flex flex-row justify-content-between card-h">
             <div>
                 <a class="icons mr-2" href="{% url 'new-issue' %}"><i class="far fa-plus-square"></i></a>
                {{ issue.status }}  ({% for type in issue.types.all %} {{ type.type_issue }} {% if not forloop.last %}, {% endif %} {% endfor %})

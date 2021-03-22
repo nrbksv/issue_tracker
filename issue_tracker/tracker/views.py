@@ -1,5 +1,8 @@
+from datetime import datetime, timedelta
+
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views.generic import TemplateView, View, FormView
+from django.db.models import Q
 
 from tracker.models import Issue
 from tracker.forms import IssueForm
@@ -10,6 +13,23 @@ class IssueListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         kwargs['issues'] = Issue.objects.all()
+        return super().get_context_data(**kwargs)
+
+
+class IssueFilteredListView(TemplateView):
+    template_name = 'issues_list.html'
+
+    def get_context_data(self, **kwargs):
+        f = kwargs.get('filter')
+        if f == 'all':
+            f = Issue.objects.all()
+        elif f == 'filter_1':
+            f = Issue.objects.filter(updated_at__gt=datetime.now()-timedelta(days=30), status__status__iexact='Сделано')
+        elif f == 'filter_2':
+            f = Issue.objects.filter(types__type_issue__in=['Ошибка', 'Улучшение'], status__status__in=['Сделано', 'Новый']).distinct()
+        elif f == 'filter_3':
+            f = Issue.objects.filter(Q(Q(types__type_issue__iexact='Ошибка') | Q(summary__icontains='bug')) & ~Q(status__status__iexact='Сделано')).distinct()
+        kwargs['issues'] = f
         return super().get_context_data(**kwargs)
 
 

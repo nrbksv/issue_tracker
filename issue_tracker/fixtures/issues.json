@@ -3,24 +3,29 @@
   "model": "tracker.issue",
   "pk": 10,
   "fields": {
-    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
-    "description": "",
-    "status": 4,
-    "type_issue": 4,
-    "created_at": "2021-03-11T11:20:13.615Z",
-    "updated_at": "2021-03-11T11:20:13.615Z"
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
+    "status": 5,
+    "created_at": "2021-01-11T11:20:13.615Z",
+    "updated_at": "2021-03-22T11:32:19.418Z",
+    "types": [
+      5,
+      6
+    ]
   }
 },
 {
   "model": "tracker.issue",
   "pk": 11,
   "fields": {
-    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, nulla.",
+    "summary": "Lorem ipsum dolor sit amet.",
     "description": "",
-    "status": 5,
-    "type_issue": 5,
-    "created_at": "2021-03-11T11:20:28.810Z",
-    "updated_at": "2021-03-11T11:20:28.810Z"
+    "status": 6,
+    "created_at": "2021-02-01T11:20:28.810Z",
+    "updated_at": "2021-03-18T05:25:19.782Z",
+    "types": [
+      6
+    ]
   }
 },
 {
@@ -30,9 +35,11 @@
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
     "status": 6,
-    "type_issue": 6,
-    "created_at": "2021-03-11T11:20:51.286Z",
-    "updated_at": "2021-03-11T11:20:51.286Z"
+    "created_at": "2021-01-11T11:20:51.286Z",
+    "updated_at": "2021-03-22T11:31:50.067Z",
+    "types": [
+      4
+    ]
   }
 },
 {
@@ -42,9 +49,11 @@
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
     "status": 4,
-    "type_issue": 5,
-    "created_at": "2021-03-11T11:21:44.463Z",
-    "updated_at": "2021-03-11T11:21:44.463Z"
+    "created_at": "2021-02-11T11:21:44.463Z",
+    "updated_at": "2021-03-12T11:21:44.463Z",
+    "types": [
+      5
+    ]
   }
 },
 {
@@ -54,9 +63,114 @@
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
     "status": 4,
-    "type_issue": 6,
-    "created_at": "2021-03-11T11:22:18.679Z",
-    "updated_at": "2021-03-11T11:22:18.679Z"
+    "created_at": "2021-01-11T11:22:18.679Z",
+    "updated_at": "2021-03-22T11:06:45.788Z",
+    "types": [
+      4
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 15,
+  "fields": {
+    "summary": "Qweolorum, ipsa.",
+    "description": "",
+    "status": 5,
+    "created_at": "2021-03-14T10:55:27.099Z",
+    "updated_at": "2021-03-14T10:55:27.099Z",
+    "types": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 16,
+  "fields": {
+    "summary": "Dolorum, ipsa bug.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ipsa.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ipsa.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ipsa.",
+    "status": 4,
+    "created_at": "2021-03-14T11:51:27.520Z",
+    "updated_at": "2021-03-22T11:11:27.327Z",
+    "types": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 17,
+  "fields": {
+    "summary": "Lorem ipsum dolor sit amet bug.",
+    "description": "QWE",
+    "status": 6,
+    "created_at": "2021-01-15T12:42:01.905Z",
+    "updated_at": "2021-02-15T12:42:14.825Z",
+    "types": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 20,
+  "fields": {
+    "summary": "Bug lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
+    "description": "QWEASD",
+    "status": 6,
+    "created_at": "2021-01-16T11:11:03.552Z",
+    "updated_at": "2021-03-22T11:24:12.440Z",
+    "types": [
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 21,
+  "fields": {
+    "summary": "Lorem bug ipsum dolor sit amet.",
+    "description": "Lorem ipsum dolor sit amet.",
+    "status": 5,
+    "created_at": "2021-03-20T15:43:42.626Z",
+    "updated_at": "2021-03-20T15:43:42.626Z",
+    "types": [
+      4
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 22,
+  "fields": {
+    "summary": "Lorem ipsum dolor sit.",
+    "description": "Lorem ipsum dolor sit.",
+    "status": 5,
+    "created_at": "2021-03-20T15:44:42.585Z",
+    "updated_at": "2021-03-20T15:44:42.586Z",
+    "types": [
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 23,
+  "fields": {
+    "summary": "New bug Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, iste.",
+    "description": "",
+    "status": 5,
+    "created_at": "2021-03-20T16:59:39.782Z",
+    "updated_at": "2021-03-20T16:59:39.782Z",
+    "types": [
+      4
+    ]
   }
 },
 {
