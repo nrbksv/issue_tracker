@@ -7,7 +7,7 @@
 
 {% block form %}
     <form action="{% url 'issue-update' issue.id %}" method="POST">
-        {% include 'form.html' %}
+        {% include 'partial/form.html' %}
         <div class="text-right">
             <input class="btn btn-secondary" type="submit" value="Сохранить изменения">
             <a class="btn btn-danger mr-2" href="{% url 'issues-list' %}">Отменить</a>

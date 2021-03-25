@@ -1,4 +1,5 @@
-from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple
+from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple, widgets
+from django import forms
 
 from tracker.models import Issue
 
@@ -22,3 +23,16 @@ class IssueForm(ModelForm):
                 'class': 'form-control'
             })
         }
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(
+        max_length=100,
+        required=False,
+        widget=widgets.TextInput(
+            attrs={
+                'style': 'width: 100%;',
+                'placeholder': 'Поиск'
+            }
+        )
+    )

@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block links %}
+      <a href="{% url 'issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все задачи</i></a>
+      <a href="{% url 'new-issue' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить</i></a>
+        {% include 'partial/search_form.html' %}
+{% endblock %}
 
 {% block content %}
     {% if not issues %}
-        <div class="card">
-            <div class="card-header card-h">
-            <a class="icons mr-2" href="{% url 'new-issue' %}"><i class="far fa-plus-square"></i></a>
-            </div>
-        </div>
-    {% endif %}
+        <h1 class="text-center mt-5">Нет задач</h1>
+    {% else %}
     {% for issue in issues %}
     <div class="card mt-2">
         <div class="card-header d-flex flex-row justify-content-between card-h">
             <div>
-                <a class="icons mr-2" href="{% url 'new-issue' %}"><i class="far fa-plus-square"></i></a>
                {{ issue.status }}  ({% for type in issue.types.all %} {{ type.type_issue }} {% if not forloop.last %}, {% endif %} {% endfor %})
             </div>
             <div>
@@ -27,4 +27,6 @@
         </div>
     </div>
     {% endfor %}
+    {% include 'partial/paginate.html' %}
+    {% endif %}
 {% endblock %}

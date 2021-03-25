@@ -1,0 +1,9 @@
+<div class="bg-light rounded p-2 mt-4">
+    <form class="text-center" action="" method="GET">
+        {{ search_form.search }}
+        <input type="submit" value="Найти" class="btn btn-secondary mt-1" style="width: 100%">
+        {% for error in search_form.search.errors %}
+            <p class="form-error">{{ error }}</p>
+        {% endfor %}
+    </form>
+</div>
