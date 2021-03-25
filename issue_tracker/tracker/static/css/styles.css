@@ -1,3 +1,10 @@
+body {
+    background: #c6c8d3;
+}
+.main-card {
+    background: transparent;
+}
+
 .card-h {
     background-color: #757474;
     color: #fff;
@@ -6,6 +13,11 @@
 .card-b {
     background-color: #eee;
 }
+
+.card-side {
+    background: transparent;
+}
+
 .icons {
     text-decoration: none;
     font-size: 18px;
