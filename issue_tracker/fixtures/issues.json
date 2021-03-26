@@ -8,6 +8,7 @@
     "status": 5,
     "created_at": "2021-01-11T11:20:13.615Z",
     "updated_at": "2021-03-23T14:14:44.084Z",
+    "project": 1,
     "types": [
       5,
       6
@@ -23,6 +24,7 @@
     "status": 6,
     "created_at": "2021-02-01T11:20:28.810Z",
     "updated_at": "2021-03-18T05:25:19.782Z",
+    "project": 1,
     "types": [
       6
     ]
@@ -37,6 +39,7 @@
     "status": 6,
     "created_at": "2021-01-11T11:20:51.286Z",
     "updated_at": "2021-03-22T11:31:50.067Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -51,6 +54,7 @@
     "status": 4,
     "created_at": "2021-02-11T11:21:44.463Z",
     "updated_at": "2021-03-23T14:15:01.045Z",
+    "project": 1,
     "types": [
       5
     ]
@@ -65,6 +69,7 @@
     "status": 4,
     "created_at": "2021-01-11T11:22:18.679Z",
     "updated_at": "2021-03-22T11:06:45.788Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -79,6 +84,7 @@
     "status": 5,
     "created_at": "2021-03-14T10:55:27.099Z",
     "updated_at": "2021-03-14T10:55:27.099Z",
+    "project": 1,
     "types": [
       4,
       5
@@ -94,6 +100,7 @@
     "status": 4,
     "created_at": "2021-03-14T11:51:27.520Z",
     "updated_at": "2021-03-22T11:11:27.327Z",
+    "project": 1,
     "types": [
       4,
       5,
@@ -110,6 +117,7 @@
     "status": 6,
     "created_at": "2021-01-15T12:42:01.905Z",
     "updated_at": "2021-02-15T12:42:14.825Z",
+    "project": 1,
     "types": [
       4,
       5
@@ -125,6 +133,7 @@
     "status": 6,
     "created_at": "2021-01-16T11:11:03.552Z",
     "updated_at": "2021-03-22T11:24:12.440Z",
+    "project": 1,
     "types": [
       5,
       6
@@ -140,6 +149,7 @@
     "status": 5,
     "created_at": "2021-03-20T15:43:42.626Z",
     "updated_at": "2021-03-20T15:43:42.626Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -154,6 +164,7 @@
     "status": 5,
     "created_at": "2021-03-20T15:44:42.585Z",
     "updated_at": "2021-03-20T15:44:42.586Z",
+    "project": 1,
     "types": [
       5
     ]
@@ -168,6 +179,7 @@
     "status": 5,
     "created_at": "2021-03-20T16:59:39.782Z",
     "updated_at": "2021-03-20T16:59:39.782Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -182,6 +194,7 @@
     "status": 4,
     "created_at": "2021-03-23T13:38:13.980Z",
     "updated_at": "2021-03-23T13:38:13.980Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -196,6 +209,7 @@
     "status": 4,
     "created_at": "2021-03-24T15:23:16.306Z",
     "updated_at": "2021-03-24T15:23:16.306Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -210,6 +224,7 @@
     "status": 5,
     "created_at": "2021-03-24T15:23:48.550Z",
     "updated_at": "2021-03-24T15:23:48.550Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -224,6 +239,7 @@
     "status": 6,
     "created_at": "2021-03-24T15:24:25.409Z",
     "updated_at": "2021-03-24T15:24:25.409Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -238,6 +254,7 @@
     "status": 4,
     "created_at": "2021-03-24T15:27:06.543Z",
     "updated_at": "2021-03-24T15:27:06.543Z",
+    "project": 1,
     "types": [
       5
     ]
@@ -252,6 +269,7 @@
     "status": 5,
     "created_at": "2021-03-24T15:27:44.529Z",
     "updated_at": "2021-03-24T15:27:44.529Z",
+    "project": 1,
     "types": [
       5
     ]
@@ -266,6 +284,7 @@
     "status": 5,
     "created_at": "2021-03-24T15:28:46.274Z",
     "updated_at": "2021-03-24T15:28:46.274Z",
+    "project": 1,
     "types": [
       6
     ]
@@ -280,6 +299,7 @@
     "status": 6,
     "created_at": "2021-03-24T15:29:22.008Z",
     "updated_at": "2021-03-24T15:51:49.520Z",
+    "project": 1,
     "types": [
       4
     ]
@@ -294,6 +314,7 @@
     "status": 6,
     "created_at": "2021-03-24T15:30:11.997Z",
     "updated_at": "2021-03-24T15:30:11.997Z",
+    "project": 1,
     "types": [
       5
     ]
@@ -308,6 +329,7 @@
     "status": 6,
     "created_at": "2021-03-24T15:30:42.297Z",
     "updated_at": "2021-03-24T15:30:42.297Z",
+    "project": 1,
     "types": [
       6
     ]
@@ -353,6 +375,16 @@
   "pk": 6,
   "fields": {
     "status": "Сделано"
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 1,
+  "fields": {
+    "project": "Issue tracker.",
+    "project_description": "Описание....",
+    "date_start": "2021-03-08",
+    "date_finish": null
   }
 }
 ]
