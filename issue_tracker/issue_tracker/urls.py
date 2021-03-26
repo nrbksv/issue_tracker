@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tracker.views import IssueListView, IssueDetail, NewIssue, IssueUpdate, IssueDelete, ProjectListView
+from tracker.views import (
+        IssueListView,
+        IssueDetail,
+        NewIssue,
+        IssueUpdate,
+        IssueDelete,
+        ProjectListView,
+        ProjectDetailView
+    )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ProjectListView.as_view(), name='projects-list'),
+    path('project/<int:pk>', ProjectDetailView.as_view(), name='project-detail'),
     path('issues/all', IssueListView.as_view(), name='issues-list'),
     path('issue/<int:pk>', IssueDetail.as_view(), name='issue-detail'),
     path('issue/add', NewIssue.as_view(), name='new-issue'),

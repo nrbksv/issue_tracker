@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <table class="table table-striped border">
+    <table class="table table-striped border bg-light">
       <thead>
         <tr class="border-0">
           <th class="pl-4" scope="col">Проект</th>
@@ -13,7 +13,7 @@
           {% for project in projects %}
                 <tr>
                   <td class="pl-4">
-                      <a class="text-dark" href="{% url 'issues-list' %}">{{ project.project }}</a>
+                      <a class="text-dark" href="{% url 'project-detail' project.id %}">{{ project.project }}</a>
                   </td>
                   <td>{{ project.date_start }}</td>
                   <td>{% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}</td>

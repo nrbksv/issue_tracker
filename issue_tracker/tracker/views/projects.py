@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from tracker.models import Project
 
@@ -9,3 +9,8 @@ class ProjectListView(ListView):
 
     def get_queryset(self):
         return Project.objects.all()
+
+
+class ProjectDetailView(DetailView):
+    template_name = 'projects/detail.html'
+    model = Project
