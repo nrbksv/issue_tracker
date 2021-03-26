@@ -9,7 +9,7 @@ from tracker.base_views import SearchView
 
 
 class IssueListView(SearchView):
-    template_name = 'issues_list.html'
+    template_name = 'issues/list.html'
     model = Issue
     context_object_name = 'issues'
     paginate_by = 10
@@ -20,7 +20,7 @@ class IssueListView(SearchView):
 
 
 class IssueDetail(TemplateView):
-    template_name = 'issue_detail.html'
+    template_name = 'issues/detail.html'
 
     def get_context_data(self, **kwargs):
         kwargs['issue'] = get_object_or_404(Issue, id=kwargs.get('pk'))
@@ -28,7 +28,7 @@ class IssueDetail(TemplateView):
 
 
 class NewIssue(FormView):
-    template_name = 'new_issue.html'
+    template_name = 'issues/create.html'
     form_class = IssueForm
 
     def form_valid(self, form):
@@ -40,7 +40,7 @@ class NewIssue(FormView):
 
 
 class IssueUpdate(FormView):
-    template_name = 'issue_update.html'
+    template_name = 'issues/update.html'
     form_class = IssueForm
 
     def dispatch(self, request, *args, **kwargs):
