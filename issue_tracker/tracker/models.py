@@ -26,6 +26,13 @@ class Issue(models.Model):
     types = models.ManyToManyField('tracker.Type', related_name='issues', verbose_name='Типы задач')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    project = models.ForeignKey(
+        'tracker.Project',
+        on_delete=models.CASCADE,
+        related_name='issues',
+        default=1,
+        verbose_name='Проект'
+    )
 
     class Meta:
         db_table = 'issues'
@@ -58,3 +65,18 @@ class Status(models.Model):
 
     def __str__(self):
         return f'{self.status}'
+
+
+class Project(models.Model):
+    project = models.CharField(max_length=50, blank=False, null=False, verbose_name='Проект')
+    project_description = models.TextField(max_length=1000, blank=False, null=False, verbose_name='Описание')
+    date_start = models.DateField(verbose_name='Дата начала')
+    date_finish = models.DateField(blank=True, null=True, verbose_name='Дата окончания')
+
+    class Meta:
+        db_table = 'projects'
+        verbose_name = 'Проект'
+        verbose_name_plural = 'Проекты'
+
+    def __str__(self):
+        return f'{self.project}{self.project_description}{self.date_start}{self.date_finish}'

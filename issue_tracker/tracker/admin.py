@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from tracker.models import Issue, Status, Type
+from tracker.models import Issue, Status, Type, Project
 
 
 class IssueAdmin(admin.ModelAdmin):
@@ -28,3 +28,12 @@ class TypeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Type, TypeAdmin)
+
+
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['id', 'project', 'date_start', 'date_finish']
+    fields = ['id', 'project', 'project_description', 'date_start', 'date_finish']
+    readonly_fields = ['id']
+
+
+admin.site.register(Project, ProjectAdmin)
