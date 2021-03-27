@@ -1,7 +1,7 @@
-from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple, widgets
+from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple, widgets, DateInput
 from django import forms
 
-from tracker.models import Issue
+from tracker.models import Issue, Project
 
 
 class IssueForm(ModelForm):
@@ -20,6 +20,27 @@ class IssueForm(ModelForm):
                 'class': 'form-control'
             }),
             'description': Textarea(attrs={
+                'class': 'form-control'
+            })
+        }
+
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['project', 'project_description', 'date_start', 'date_finish']
+
+        widgets = {
+            'project': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'project_description': Textarea(attrs={
+                'class': 'form-control'
+            }),
+            'date_start': DateInput(attrs={
+                'class': 'form-control'
+            }),
+            'date_finish': DateInput(attrs={
                 'class': 'form-control'
             })
         }

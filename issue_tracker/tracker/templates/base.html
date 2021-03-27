@@ -13,20 +13,18 @@
     <title>Issue tracker</title>
 </head>
 <body class="content d-flex">
-    <div class="card {% if search_form %} ml-auto {% else %} mx-auto{% endif %} mt-3 my-card border-0 main-card " style="width: 70%;">
+    <div class="card ml-auto mt-3 my-card border-0 main-card " style="width: 70%;">
         {% block content %}
         {% endblock %}
     </div>
-    {% if search_form %}
-        <div class="mx-1 mt-5 ">
-            <div class="card card-side border-0 sticky-top" style="width: 16rem;">
-              <div class="card-body">
-                  {% block links %}
-                  {% endblock %}
-              </div>
-            </div>
+    <div class="mx-1 mt-5 ">
+        <div class="card card-side border-0 sticky-top" style="width: 16rem;">
+          <div class="card-body">
+              {% block links %}
+              {% endblock %}
+          </div>
         </div>
-    {% endif %}
+    </div>
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
