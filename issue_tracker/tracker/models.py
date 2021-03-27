@@ -40,7 +40,7 @@ class Issue(models.Model):
         verbose_name_plural = 'Задачи'
 
     def __str__(self):
-        return f'{self.status}{self.types}{self.summary}{self.description}'
+        return f'{self.status}{self.types}{self.summary}{self.description}{self.project}'
 
 
 class Type(models.Model):
@@ -79,4 +79,4 @@ class Project(models.Model):
         verbose_name_plural = 'Проекты'
 
     def __str__(self):
-        return f'{self.project}{self.project_description}{self.date_start}{self.date_finish}'
+        return f'{self.project}'

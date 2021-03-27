@@ -4,12 +4,36 @@ from django import forms
 from tracker.models import Issue, Project
 
 
-class IssueForm(ModelForm):
+class ProjectIssueForm(ModelForm):
     class Meta:
         model = Issue
         fields = ['status', 'types', 'summary', 'description']
 
         widgets = {
+            'status': Select(attrs={
+                'class': 'form-control'
+            }),
+            'types': CheckboxSelectMultiple(attrs={
+                'class': 'list-unstyled'
+            }),
+            'summary': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'description': Textarea(attrs={
+                'class': 'form-control'
+            })
+        }
+
+
+class IssueForm(ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['project', 'status', 'types', 'summary', 'description']
+
+        widgets = {
+            'project': Select(attrs={
+                'class': 'form-control'
+            }),
             'status': Select(attrs={
                 'class': 'form-control'
             }),

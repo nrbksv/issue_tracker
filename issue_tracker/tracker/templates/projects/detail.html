@@ -3,7 +3,7 @@
 {% block links %}
     <a href="{% url 'projects-list' %}" class="btn btn-secondary mt-1" style="width: 100%">Проекты</a>
     <a href="{% url 'issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все задачи</i></a>
-    <a href="{% url 'new-issue' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
+    <a href="{% url 'project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
 {% endblock %}
 
 {% block content %}

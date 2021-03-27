@@ -23,7 +23,8 @@ from tracker.views import (
         IssueDelete,
         ProjectListView,
         ProjectDetailView,
-        ProjectCreateView
+        ProjectCreateView,
+        ProjectIssueCreate
     )
 
 urlpatterns = [
@@ -31,6 +32,7 @@ urlpatterns = [
     path('', ProjectListView.as_view(), name='projects-list'),
     path('project/<int:pk>', ProjectDetailView.as_view(), name='project-detail'),
     path('project/add', ProjectCreateView.as_view(), name='project-create'),
+    path('project/<int:pk>/issue/add', ProjectIssueCreate.as_view(), name='project-issue'),
     path('issues/all', IssueListView.as_view(), name='issues-list'),
     path('issue/<int:pk>', IssueDetail.as_view(), name='issue-detail'),
     path('issue/add', NewIssue.as_view(), name='new-issue'),
