@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block links %}
-    <a href="{% url 'projects-list' %}" class="btn btn-secondary mt-1" style="width: 100%">Проекты</a>
-    <a href="{% url 'issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все задачи</i></a>
+    <a href="{% url 'projects-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все проекты</i></a>
+    <a href="{% url 'issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-tasks">  Все задачи</i></a>
     <a href="{% url 'project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
 {% endblock %}
 
@@ -20,22 +20,9 @@
             <hr>
             <p class="card-text font-italic mt-5"><b>Задачи:</b></p>
             {% for issue in project.issues.all %}
-            <div class="card mt-2">
-                <div class="card-header d-flex flex-row justify-content-between card-h">
-                    <div>
-                       {{ issue.status }}  ({% for type in issue.types.all %} {{ type.type_issue }} {% if not forloop.last %}, {% endif %} {% endfor %})
-                    </div>
-                    <div>
-                        <a class="link-text mr-2" href="{% url 'issue-detail' issue.id %}">Подробнее >> </a>
-                        <a class="icons" href="{% url 'issue-update' issue.id %}"><i class="far fa-edit"></i></a>
-                    </div>
-                </div>
-                <div class="card-body card-b">
-                  <p class="card-text">{{ issue.summary }}</p>
-                </div>
-            </div>
+                {% include 'partial/list_card.html' %}
                 {% empty %}
-                <h2>Нет задач</h2>
+                <h1 class="text-center mt-5">Нет задач</h1>
             {% endfor %}
         </div>
     </div>

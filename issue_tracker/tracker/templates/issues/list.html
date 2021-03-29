@@ -9,25 +9,10 @@
 {% endblock %}
 
 {% block content %}
-    {% if not issues %}
-        <h1 class="text-center mt-5">Нет задач</h1>
-    {% else %}
     {% for issue in issues %}
-    <div class="card mt-2">
-        <div class="card-header d-flex flex-row justify-content-between card-h">
-            <div>
-               {{ issue.status }}  ({% for type in issue.types.all %} {{ type.type_issue }} {% if not forloop.last %}, {% endif %} {% endfor %})
-            </div>
-            <div>
-                <a class="link-text mr-2" href="{% url 'issue-detail' issue.id %}">Подробнее >> </a>
-                <a class="icons" href="{% url 'issue-update' issue.id %}"><i class="far fa-edit"></i></a>
-            </div>
-        </div>
-        <div class="card-body card-b">
-          <p class="card-text">{{ issue.summary }}</p>
-        </div>
-    </div>
+        {% include 'partial/list_card.html' %}
+        {% empty %}
+        <h1 class="text-center mt-5">Нет задач</h1>
     {% endfor %}
     {% include 'partial/paginate.html' %}
-    {% endif %}
 {% endblock %}

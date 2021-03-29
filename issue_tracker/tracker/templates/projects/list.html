@@ -6,26 +6,21 @@
 {% endblock %}
 
 {% block content %}
-    <table class="table table-striped border bg-light">
-      <thead>
-        <tr class="border-0">
-          <th class="pl-4" scope="col">Проект</th>
-          <th scope="col">Дата начала</th>
-          <th scope="col">Дата окончания</th>
-        </tr>
-      </thead>
-      <tbody class="border-0">
-          {% for project in projects %}
-                <tr>
-                  <td class="pl-4">
-                      <a class="text-dark" href="{% url 'project-detail' project.id %}">{{ project.project }}</a>
-                  </td>
-                  <td>{{ project.date_start }}</td>
-                  <td>{% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}</td>
-                </tr>
-          {% empty %}
-          <tr><td>Проектов нет</td></tr>
-          {% endfor %}
-      </tbody>
-    </table>
+      {% for project in projects %}
+            <div class="card mt-2">
+                <div class="card-header d-flex flex-row justify-content-between card-h">
+                    <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
+                    <div><span class="mr-2"><b>Дата окончания: </b></span>
+                        {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}
+                    </div>
+                </div>
+                <a class="text-dark" href="{% url 'project-detail' project.id %}">
+                    <div class="card-body card-b cb-p">
+                      <p class="card-text font-italic"><b>Проект:</b><span class="ml-2">{{ project.project }}</span></p>
+                    </div>
+                </a>
+            </div>
+      {% empty %}
+      <h2>Проектов нет</h2>
+      {% endfor %}
 {% endblock %}
