@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView, View, FormView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, View, FormView, UpdateView, DeleteView
 from django.db.models import Q
 
 
@@ -49,8 +50,8 @@ class IssueUpdate(UpdateView):
         return reverse('issue-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class IssueDelete(View):
-    def post(self, request, pk):
-        issue = get_object_or_404(Issue, id=pk)
-        issue.delete()
-        return redirect('issues-list')
+class IssueDelete(DeleteView):
+    template_name = 'partial/modal.html'
+    model = Issue
+    context_object_name = 'issue'
+    success_url = reverse_lazy('issues-list')
