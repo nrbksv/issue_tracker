@@ -23,7 +23,7 @@ class ProjectDetailView(DetailView):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
         paginator = Paginator(project.issues.all(), 5)
         page = self.request.GET.get('page')
-        if page == None:
+        if page is None:
             page = 1
         context['issues'] = paginator.get_page(page)
         context['is_paginated'] = True

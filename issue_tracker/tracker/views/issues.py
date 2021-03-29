@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import TemplateView, View, FormView
+from django.shortcuts import get_object_or_404, redirect, reverse
+from django.views.generic import TemplateView, View, FormView, UpdateView
 from django.db.models import Q
 
 
@@ -39,34 +39,14 @@ class NewIssue(FormView):
         return reverse('issue-detail', kwargs={'pk': self.issue.pk})
 
 
-class IssueUpdate(FormView):
+class IssueUpdate(UpdateView):
+    model = Issue
     template_name = 'issues/update.html'
     form_class = IssueForm
-
-    def dispatch(self, request, *args, **kwargs):
-        self.issue = self.get_object()
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['issue'] = self.issue
-        return context
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['instance'] = self.issue
-        return kwargs
-
-    def form_valid(self, form):
-        self.issue = form.save()
-        return super().form_valid(form)
+    context_object_name = 'issue'
 
     def get_success_url(self):
-        return reverse('issue-detail', kwargs={'pk': self.issue.id})
-
-    def get_object(self):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(Issue, id=pk)
+        return reverse('issue-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
 class IssueDelete(View):
