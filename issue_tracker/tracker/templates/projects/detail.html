@@ -11,7 +11,9 @@
         <div class="card-header d-flex flex-row justify-content-between card-h">
             <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
             <div class="mr-3"><span class="mr-2"><b>Дата окончания: </b></span>
-                    {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}</div>
+                    {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}
+            <a class="icons" href="{% url 'project-update' project.id %}"><i class="far fa-edit"></i></a>
+            </div>
         </div>
         <div class="card-body">
           <p class="card-text font-italic"><b>Проект:</b><span class="ml-2">{{ project.project }}</span></p>

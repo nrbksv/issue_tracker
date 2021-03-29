@@ -1,0 +1,16 @@
+{% extends 'card_base.html' %}
+
+
+{% block form-header %}
+    <h3 class="">Редактирование проекта</h3>
+{% endblock %}
+
+{% block form %}
+    <form action="{% url 'project-update' project.id %}" method="POST">
+        {% include 'partial/form.html' %}
+        <div class="text-right">
+            <input class="btn btn-secondary" type="submit" value="Сохранить изменения">
+            <a class="btn btn-danger mr-2" href="{% url 'projects-list' %}">Отменить</a>
+        </div>
+    </form>
+{% endblock %}

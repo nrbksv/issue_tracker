@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.shortcuts import get_object_or_404, reverse
 from django.core.paginator import Paginator, Page
 
@@ -49,6 +49,16 @@ class ProjectIssueCreate(CreateView):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
         form.instance.project = project
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
+
+
+class ProjectUpdateView(UpdateView):
+    template_name = 'projects/update.html'
+    model = Project
+    form_class = ProjectForm
+    context_object_name = 'project'
 
     def get_success_url(self):
         return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
