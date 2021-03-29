@@ -30,7 +30,6 @@ class Issue(models.Model):
         'tracker.Project',
         on_delete=models.CASCADE,
         related_name='issues',
-        default=1,
         verbose_name='Проект'
     )
 
