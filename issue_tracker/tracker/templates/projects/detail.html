@@ -19,11 +19,12 @@
           <p class="card-text font-italic">{{ project.project_description }}</p>
             <hr>
             <p class="card-text font-italic mt-5"><b>Задачи:</b></p>
-            {% for issue in project.issues.all %}
+            {% for issue in issues %}
                 {% include 'partial/list_card.html' %}
                 {% empty %}
                 <h1 class="text-center mt-5">Нет задач</h1>
             {% endfor %}
+        {% include 'partial/paginate.html' %}
         </div>
     </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import get_object_or_404, reverse
+from django.core.paginator import Paginator, Page
 
 from tracker.models import Project
 from tracker.forms import ProjectForm, ProjectIssueForm
@@ -16,6 +17,16 @@ class ProjectListView(ListView):
 class ProjectDetailView(DetailView):
     template_name = 'projects/detail.html'
     model = Project
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        paginator = Paginator(project.issues.all(), 5)
+        page = self.request.GET.get('page')
+        context['issues'] = paginator.get_page(page)
+        context['is_paginated'] = True
+        context['page_obj'] = Page(project.issues.all(), int(page), paginator)
+        return context
 
 
 class ProjectCreateView(CreateView):
