@@ -336,6 +336,96 @@
   }
 },
 {
+  "model": "tracker.issue",
+  "pk": 36,
+  "fields": {
+    "summary": "Project issue",
+    "description": "Project issue lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium cupiditate eveniet expedita, nobis rem vel.",
+    "status": 4,
+    "created_at": "2021-03-27T13:13:21.206Z",
+    "updated_at": "2021-03-28T05:43:15.721Z",
+    "project": 2,
+    "types": [
+      4
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 37,
+  "fields": {
+    "summary": "Project in progress enhancement",
+    "description": "Project in progress enhancement",
+    "status": 5,
+    "created_at": "2021-03-27T13:14:55.073Z",
+    "updated_at": "2021-03-27T13:14:55.073Z",
+    "project": 2,
+    "types": [
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 38,
+  "fields": {
+    "summary": "Project #3 new issue",
+    "description": "",
+    "status": 4,
+    "created_at": "2021-03-27T13:29:59.040Z",
+    "updated_at": "2021-03-27T13:29:59.040Z",
+    "project": 3,
+    "types": [
+      4
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 39,
+  "fields": {
+    "summary": "Project #3 in progress bug",
+    "description": "",
+    "status": 5,
+    "created_at": "2021-03-27T14:09:19.671Z",
+    "updated_at": "2021-03-27T14:09:19.671Z",
+    "project": 3,
+    "types": [
+      6
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 40,
+  "fields": {
+    "summary": "Enhancement  done lorem ipsum dolor sit amet.",
+    "description": "",
+    "status": 6,
+    "created_at": "2021-03-27T14:16:03.209Z",
+    "updated_at": "2021-03-27T14:16:03.210Z",
+    "project": 3,
+    "types": [
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 41,
+  "fields": {
+    "summary": "Проект 4 lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ipsa.",
+    "description": "Описание..................",
+    "status": 4,
+    "created_at": "2021-03-27T14:17:49.014Z",
+    "updated_at": "2021-03-27T14:17:49.014Z",
+    "project": 4,
+    "types": [
+      4
+    ]
+  }
+},
+{
   "model": "tracker.type",
   "pk": 4,
   "fields": {
@@ -384,6 +474,36 @@
     "project": "Issue tracker.",
     "project_description": "Описание....",
     "date_start": "2021-03-08",
+    "date_finish": null
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 2,
+  "fields": {
+    "project": "Ппроект 2",
+    "project_description": "......................",
+    "date_start": "2021-03-27",
+    "date_finish": null
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 3,
+  "fields": {
+    "project": "Project 3",
+    "project_description": "Project ipsum dolor sit amet, consectetur adipisicing elit. Dolorum est illo, iste libero maxime quo voluptatibus? Aperiam consequuntur eligendi eum.",
+    "date_start": "2021-03-28",
+    "date_finish": null
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 4,
+  "fields": {
+    "project": "Проект 4",
+    "project_description": "Проект 4 ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid error ex harum, ipsam magni minus natus perferendis quo repellat sed, tenetur veritatis, voluptates voluptatibus?",
+    "date_start": "2021-01-01",
     "date_finish": null
   }
 }
