@@ -1,5 +1,6 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from django.utils.http import urlencode
+from django.shortcuts import get_object_or_404, redirect
 
 
 from tracker.forms import SearchForm
@@ -16,13 +17,13 @@ class SearchView(ListView):
         pass
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().filter(project__is_deleted=False)
         if self.search_value:
             query = self.get_query()
             if query:
-                queryset = queryset.filter(query)
+                queryset = queryset.filter(query).filter(project__is_deleted=False)
             else:
-                queryset = queryset.filter()
+                queryset = queryset.filter(project__is_deleted=False)
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -37,3 +38,13 @@ class SearchView(ListView):
         if self.form.is_valid():
             return self.form.cleaned_data['search']
         return None
+
+
+class SoftDeleteView(DeleteView):
+    success_url = None
+
+    def delete(self, request, *args, **kwargs):
+        object = get_object_or_404(self.model, id=self.kwargs.get('pk'))
+        object.is_deleted = True
+        object.save()
+        return redirect(self.success_url)

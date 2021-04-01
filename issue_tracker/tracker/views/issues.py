@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404, redirect, reverse
+from django.shortcuts import get_object_or_404, reverse
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, View, FormView, UpdateView, DeleteView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
 
@@ -20,24 +20,21 @@ class IssueListView(SearchView):
         return query
 
 
-class IssueDetail(TemplateView):
+class IssueDetail(DetailView):
     template_name = 'issues/detail.html'
+    model = Issue
 
-    def get_context_data(self, **kwargs):
-        kwargs['issue'] = get_object_or_404(Issue, id=kwargs.get('pk'))
-        return super().get_context_data(**kwargs)
+    def get_queryset(self):
+        return super().get_queryset().filter(project__is_deleted=False)
 
 
-class NewIssue(FormView):
+class NewIssue(CreateView):
     template_name = 'issues/create.html'
+    model = Issue
     form_class = IssueForm
 
-    def form_valid(self, form):
-        self.issue = form.save()
-        return super().form_valid(form)
-
     def get_success_url(self):
-        return reverse('issue-detail', kwargs={'pk': self.issue.pk})
+        return reverse('issue-detail', kwargs={'pk': self.object.pk})
 
 
 class IssueUpdate(UpdateView):
@@ -51,7 +48,6 @@ class IssueUpdate(UpdateView):
 
 
 class IssueDelete(DeleteView):
-    template_name = 'partial/modal.html'
     model = Issue
     context_object_name = 'issue'
     success_url = reverse_lazy('issues-list')

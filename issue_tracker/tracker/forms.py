@@ -1,4 +1,4 @@
-from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple, widgets, DateInput
+from django.forms import ModelForm, TextInput, Select, Textarea, CheckboxSelectMultiple, widgets, DateInput, modelformset_factory
 from django import forms
 
 from tracker.models import Issue, Project

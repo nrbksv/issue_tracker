@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, Page
 
 from tracker.models import Project
 from tracker.forms import ProjectForm, ProjectIssueForm
+from tracker.base_views import SoftDeleteView
 
 
 class ProjectListView(ListView):
@@ -11,7 +12,7 @@ class ProjectListView(ListView):
     context_object_name = 'projects'
 
     def get_queryset(self):
-        return Project.objects.all()
+        return Project.objects.filter(is_deleted=False)
 
 
 class ProjectDetailView(DetailView):
@@ -29,6 +30,9 @@ class ProjectDetailView(DetailView):
         context['is_paginated'] = True
         context['page_obj'] = Page(project.issues.all(), int(page), paginator)
         return context
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_deleted=False)
 
 
 class ProjectCreateView(CreateView):
@@ -63,3 +67,8 @@ class ProjectUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
 
+
+class ProjectDeleteView(SoftDeleteView):
+    model = Project
+    context_object_name = 'project'
+    success_url = 'projects-list'

@@ -4,5 +4,6 @@ from tracker.views.projects import (
         ProjectDetailView,
         ProjectCreateView,
         ProjectIssueCreate,
-        ProjectUpdateView
+        ProjectUpdateView,
+        ProjectDeleteView
     )

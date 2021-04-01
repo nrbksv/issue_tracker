@@ -3,9 +3,6 @@
         <div>
            {{ issue.status }}  ({% for type in issue.types.all %} {{ type.type_issue }} {% if not forloop.last %}, {% endif %} {% endfor %})
         </div>
-        <div>
-            <a class="icons" href="{% url 'issue-update' issue.id %}"><i class="far fa-edit"></i></a>
-        </div>
     </div>
     <a class="text-dark" href="{% url 'issue-detail' issue.id %}">
         <div class="card-body card-b">
