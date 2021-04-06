@@ -14,32 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from tracker.views import (
-        IssueListView,
-        IssueDetail,
-        NewIssue,
-        IssueUpdate,
-        IssueDelete,
-        ProjectListView,
-        ProjectDetailView,
-        ProjectCreateView,
-        ProjectIssueCreate,
-        ProjectUpdateView,
-        ProjectDeleteView
-    )
+from django.urls import path, include
+from django.views.generic import RedirectView
+
+
+HOMEPAGE_URL = 'projects/'
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ProjectListView.as_view(), name='projects-list'),
-    path('project/<int:pk>', ProjectDetailView.as_view(), name='project-detail'),
-    path('project/add', ProjectCreateView.as_view(), name='project-create'),
-    path('project/<int:pk>/update', ProjectUpdateView.as_view(), name='project-update'),
-    path('project/<int:pk>/delete', ProjectDeleteView.as_view(), name='project-delete'),
-    path('project/<int:pk>/issue/add', ProjectIssueCreate.as_view(), name='project-issue'),
-    path('issues/all', IssueListView.as_view(), name='issues-list'),
-    path('issue/<int:pk>', IssueDetail.as_view(), name='issue-detail'),
-    path('issue/add', NewIssue.as_view(), name='new-issue'),
-    path('issue/<int:pk>/update', IssueUpdate.as_view(), name='issue-update'),
-    path('issue/<int:pk>/delete', IssueDelete.as_view(), name='issue-delete'),
+    path('projects/', include('tracker.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('', RedirectView.as_view(url=HOMEPAGE_URL, permanent=True)),
 ]
