@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
@@ -28,7 +29,7 @@ class IssueDetail(DetailView):
         return super().get_queryset().filter(project__is_deleted=False)
 
 
-class NewIssue(CreateView):
+class NewIssue(LoginRequiredMixin, CreateView):
     template_name = 'issues/create.html'
     model = Issue
     form_class = IssueForm
@@ -37,7 +38,7 @@ class NewIssue(CreateView):
         return reverse('issue-detail', kwargs={'pk': self.object.pk})
 
 
-class IssueUpdate(UpdateView):
+class IssueUpdate(LoginRequiredMixin, UpdateView):
     model = Issue
     template_name = 'issues/update.html'
     form_class = IssueForm
@@ -47,7 +48,7 @@ class IssueUpdate(UpdateView):
         return reverse('issue-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class IssueDelete(DeleteView):
+class IssueDelete(LoginRequiredMixin, DeleteView):
     model = Issue
     context_object_name = 'issue'
     success_url = reverse_lazy('issues-list')

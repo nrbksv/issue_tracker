@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.shortcuts import get_object_or_404, reverse
 from django.core.paginator import Paginator, Page
@@ -35,7 +36,7 @@ class ProjectDetailView(DetailView):
         return super().get_queryset().filter(is_deleted=False)
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'projects/create.html'
     model = Project
     form_class = ProjectForm
@@ -44,7 +45,7 @@ class ProjectCreateView(CreateView):
         return reverse('project-detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectIssueCreate(CreateView):
+class ProjectIssueCreate(LoginRequiredMixin, CreateView):
     template_name = 'projects/create_issue.html'
     model = Project
     form_class = ProjectIssueForm
@@ -58,7 +59,7 @@ class ProjectIssueCreate(CreateView):
         return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'projects/update.html'
     model = Project
     form_class = ProjectForm
@@ -68,7 +69,7 @@ class ProjectUpdateView(UpdateView):
         return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class ProjectDeleteView(SoftDeleteView):
+class ProjectDeleteView(LoginRequiredMixin, SoftDeleteView):
     model = Project
     context_object_name = 'project'
     success_url = 'projects-list'
