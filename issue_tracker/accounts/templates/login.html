@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card mt-2 mx-auto" style="width: 60%">
+    <div class="card-header">
+        <div>Авторизация</div>
+    </div>
+    <div class="card-body card-b">
+        {% if has_error %}
+            <p>Неправильный логин или пароль</p>
+        {% endif %}
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input aria-label="Имя" type="text" name="username">
+            <input aria-label="Пароль" type="text" name="password">
+            <input type="submit" value="Войти">
+        </form>
+    </div>
+</div>
+{% endblock %}
