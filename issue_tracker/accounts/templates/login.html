@@ -10,7 +10,7 @@
         {% if has_error %}
             <p>Неправильный логин или пароль</p>
         {% endif %}
-        <form action="{% url 'login' %}" method="POST">
+        <form action="{% url 'login' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}" method="POST">
             {% csrf_token %}
             <input aria-label="Имя" type="text" name="username">
             <input aria-label="Пароль" type="text" name="password">
