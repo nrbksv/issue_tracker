@@ -9,10 +9,10 @@
             <p>{{ issue.summary }}</p>
         </div>
         <div class="modal-footer card-h">
-        <form action="{% url 'issue-delete' issue.id %}" method="post">
+        <form action="{% url 'tracker:issue-delete' issue.id %}" method="post">
             {% csrf_token %}
             <div class="d-flex flex-row justify-content-end">
-                <div><a class="btn btn-dark btn-sm mr-3" href="{% url 'issues-list' %}">Нет, отменить</a></div>
+                <div><a class="btn btn-dark btn-sm mr-3" href="{% url 'tracker:issues-list' %}">Нет, отменить</a></div>
                 <div><input type="submit" class="btn btn-danger btn-sm" value="Да, удалить!"></div>
             </div>
         </form>

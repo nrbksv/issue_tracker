@@ -35,7 +35,7 @@ class NewIssue(LoginRequiredMixin, CreateView):
     form_class = IssueForm
 
     def get_success_url(self):
-        return reverse('issue-detail', kwargs={'pk': self.object.pk})
+        return reverse('tracker:issue-detail', kwargs={'pk': self.object.pk})
 
 
 class IssueUpdate(LoginRequiredMixin, UpdateView):
@@ -45,10 +45,10 @@ class IssueUpdate(LoginRequiredMixin, UpdateView):
     context_object_name = 'issue'
 
     def get_success_url(self):
-        return reverse('issue-detail', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('tracker:issue-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
 class IssueDelete(LoginRequiredMixin, DeleteView):
     model = Issue
     context_object_name = 'issue'
-    success_url = reverse_lazy('issues-list')
+    success_url = reverse_lazy('tracker:issues-list')

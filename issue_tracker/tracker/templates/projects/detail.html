@@ -3,11 +3,11 @@
 {% block links %}
     {% if user.is_authenticated %}
     {% else %}
-        <a href="{% url 'login' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-sign-in-alt">  Войти</i></a>
+        <a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-sign-in-alt">  Войти</i></a>
     {% endif %}
-    <a href="{% url 'projects-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все проекты</i></a>
-    <a href="{% url 'issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-tasks">  Все задачи</i></a>
-    <a href="{% url 'project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
+    <a href="{% url 'tracker:projects-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все проекты</i></a>
+    <a href="{% url 'tracker:issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-tasks">  Все задачи</i></a>
+    <a href="{% url 'tracker:project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
             <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
             <div class="mr-3"><span class="mr-2"><b>Дата окончания: </b></span>
                     {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}
-            <a class="icons ml-2" href="{% url 'project-update' project.id %}"><i class="far fa-edit"></i></a>
+            <a class="icons ml-2" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
             <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#modal"><i class="far fa-trash-alt"></i></button>
             </div>
         </div>

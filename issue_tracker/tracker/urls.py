@@ -14,6 +14,8 @@ from tracker.views import (
         ProjectDeleteView
     )
 
+app_name = 'tracker'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ProjectListView.as_view(), name='projects-list'),

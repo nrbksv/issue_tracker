@@ -4,11 +4,11 @@
     <h3 class="">Добавить задачу</h3>
 {% endblock %}
 {% block form %}
-    <form action="{% url 'new-issue' %}" method="POST">
+    <form action="{% url 'tracker:new-issue' %}" method="POST">
       {% include 'partial/form.html' %}
       <div class="text-right">
           <input class="btn btn-secondary" type="submit" value="Добавить">
-          <a class="btn btn-danger mr-2" href="{% url 'issues-list' %}">Отменить</a>
+          <a class="btn btn-danger mr-2" href="{% url 'tracker:issues-list' %}">Отменить</a>
       </div>
     </form>
 {% endblock %}

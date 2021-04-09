@@ -9,10 +9,10 @@
             <p>{{ project.project }}</p>
         </div>
         <div class="modal-footer card-h">
-        <form action="{% url 'project-delete' project.id %}" method="post">
+        <form action="{% url 'tracker:project-delete' project.id %}" method="post">
             {% csrf_token %}
             <div class="d-flex flex-row justify-content-end">
-                <div><a class="btn btn-dark btn-sm mr-3" href="{% url 'projects-list' %}">Нет, отменить</a></div>
+                <div><a class="btn btn-dark btn-sm mr-3" href="{% url 'tracker:projects-list' %}">Нет, отменить</a></div>
                 <div><input type="submit" class="btn btn-danger btn-sm" value="Да, удалить!"></div>
             </div>
         </form>

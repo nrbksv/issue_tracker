@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block form %}
-    <form action="{% url 'project-create' %}" method="post">
+    <form action="{% url 'tracker:project-create' %}" method="post">
         {% include 'partial/form.html' %}
         <div class="text-right">
           <input class="btn btn-secondary" type="submit" value="Добавить">
-          <a class="btn btn-danger mr-2" href="{% url 'projects-list' %}">Отменить</a>
+          <a class="btn btn-danger mr-2" href="{% url 'tracker:projects-list' %}">Отменить</a>
         </div>
     </form>
 {% endblock %}

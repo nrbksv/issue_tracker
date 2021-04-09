@@ -42,7 +42,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     form_class = ProjectForm
 
     def get_success_url(self):
-        return reverse('project-detail', kwargs={'pk': self.object.pk})
+        return reverse('tracker:project-detail', kwargs={'pk': self.object.pk})
 
 
 class ProjectIssueCreate(LoginRequiredMixin, CreateView):
@@ -56,7 +56,7 @@ class ProjectIssueCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('tracker:project-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
@@ -66,10 +66,10 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     context_object_name = 'project'
 
     def get_success_url(self):
-        return reverse('project-detail', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('tracker:project-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
 class ProjectDeleteView(LoginRequiredMixin, SoftDeleteView):
     model = Project
     context_object_name = 'project'
-    success_url = 'projects-list'
+    success_url = 'tracker:projects-list'
