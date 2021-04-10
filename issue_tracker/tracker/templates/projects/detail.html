@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 
 {% block links %}
-    {% if user.is_authenticated %}
-    {% else %}
-        <a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-sign-in-alt">  Войти</i></a>
-    {% endif %}
-    <a href="{% url 'tracker:projects-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-list-alt">  Все проекты</i></a>
-    <a href="{% url 'tracker:issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-tasks">  Все задачи</i></a>
     <a href="{% url 'tracker:project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
 {% endblock %}
 

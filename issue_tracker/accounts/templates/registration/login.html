@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<div class="card mt-2 mx-auto" style="width: 60%">
-    <div class="card-header">
+<div class="card mt-2 mx-auto" style="width: 40%">
+    <div class="card-header text-center bg-secondary text-white">
         <b><i>Авторизация</i></b>
     </div>
     <div class="card-body card-b">
@@ -12,9 +12,9 @@
         {% endif %}
         <form action="" method="POST">
             {% csrf_token %}
-            <input aria-label="Имя" type="text" name="username">
-            <input aria-label="Пароль" type="text" name="password">
-            <input type="submit" value="Войти">
+            <div><label>Имя:</label><input class="ml-5" aria-label="Имя" type="text" name="username"></div>
+            <div class="mt-2"><label>Пароль:</label><input class="ml-4" aria-label="Пароль" type="password" name="password"></div>
+            <div class="text-center mt-3"><input class="btn btn-secondary btn-sm " style="width: 40%" type="submit" value="Войти"></div>
         </form>
     </div>
 </div>
