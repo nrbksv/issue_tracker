@@ -26,6 +26,6 @@ class RegisterForm(UserCreationForm):
         first_name = cleaned_data.get('first_name')
         last_name = cleaned_data.get('last_name')
         if not first_name and not last_name:
-            self.add_error('first_name', 'Введите хотя бы имя')
-            self.add_error('last_name', 'Или фамилию')
+            self.add_error('first_name', 'Одно из этих двух полей должно быть заполнено')
+            self.add_error('last_name', 'Одно из этих двух полей должно быть заполнено')
         return cleaned_data
