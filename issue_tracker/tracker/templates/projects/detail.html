@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block links %}
-    <a href="{% url 'tracker:project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить задачу</i></a>
+    {% if perms.tracker.add_issue %}
+    <a href="{% url 'tracker:project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%">
+        <i class="far fa-plus-square">  Добавить задачу</i></a>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -10,10 +13,21 @@
             <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
             <div class="mr-3">
                 {% if project.date_finish %}<span class="mr-2"><b>Дата окончания: </b></span>{{ project.date_finish }}{% endif %}
-                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#Modal_add"><i class="fas fa-user-plus"></i></button>
-                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#Modal_remove"><i class="fas fa-user-minus"></i></button>
-                <a class="icons ml-2" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
-                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#modal"><i class="far fa-trash-alt"></i></button>
+                {% if perms.tracker.add_project_user %}
+                    <button class="link border-0 icons i-btn {% if request.user.username != 'admin' %}{% if request.user not in project.users.all %}disabled{% endif %}{% endif %}" data-bs-toggle="modal" data-bs-target="#Modal_add">
+                        <i class="fas fa-user-plus"></i></button>
+                {% endif %}
+                {% if perms.tracker.delete_project_user %}
+                    <button class="link border-0 icons i-btn {% if request.user.username != 'admin' %}{% if request.user not in project.users.all %}disabled{% endif %}{% endif %}" data-bs-toggle="modal" data-bs-target="#Modal_remove">
+                        <i class="fas fa-user-minus"></i></button>
+                {% endif %}
+                {% if perms.tracker.change_project %}
+                    <a class="icons ml-2 {% if request.user.username != 'admin' %}{% if request.user not in project.users.all %}disabled{% endif %}{% endif %}" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
+                {% endif %}
+                {% if perms.tracker.delete_project %}
+                    <button class="link border-0 icons i-btn {% if request.user.username != 'admin' %}{% if request.user not in project.users.all %}disabled{% endif %}{% endif %}" data-bs-toggle="modal" data-bs-target="#modal">
+                        <i class="far fa-trash-alt"></i></button>
+                {% endif %}
             </div>
         </div>
         <div class="card-body">

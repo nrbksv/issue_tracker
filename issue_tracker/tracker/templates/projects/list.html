@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block links %}
-    <a href="{% url 'tracker:project-create' %}"  class="btn btn-secondary mt-1" style="width: 100%"><i class="far fa-plus-square">  Добавить проект</i></a>
+    {% if perms.tracker.add_project %}
+        <a href="{% url 'tracker:project-create' %}"  class="btn btn-secondary mt-1" style="width: 100%">
+            <i class="far fa-plus-square">  Добавить проект</i></a>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -13,7 +16,7 @@
                         {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}
                     </div>
                 </div>
-                <a class="text-dark" href="{% url 'tracker:project-detail' project.id %}">
+                <a class="text-dark {% if not perms.tracker.view_project %}disabled{% endif %}" href="{% url 'tracker:project-detail' project.id %}">
                     <div class="card-body card-b cb-p">
                       <p class="card-text font-italic"><b>Проект:</b><span class="ml-2">{{ project.project }}</span></p>
                     </div>

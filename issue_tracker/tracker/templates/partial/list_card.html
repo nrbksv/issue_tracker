@@ -4,7 +4,7 @@
            {{ issue.status }}  ({% for type in issue.types.all %} {{ type.type_issue }} {% if not forloop.last %}, {% endif %} {% endfor %})
         </div>
     </div>
-    <a class="text-dark" href="{% url 'tracker:issue-detail' issue.id %}">
+    <a class="text-dark {% if request.user.username != 'admin' %}{% if request.user not in issue.project.users.all %}disabled{% endif %}{% endif %}" href="{% url 'tracker:issue-detail' issue.id %}">
         <div class="card-body card-b">
           <p class="card-text">{{ issue.summary }}</p>
         </div>

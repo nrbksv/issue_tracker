@@ -4,7 +4,6 @@
       <th scope="col">Пользователь</th>
       <th scope="col">e-mail</th>
       <th scope="col">Имя</th>
-      <th scope="col">Фамилия</th>
     </tr>
   </thead>
   <tbody class="border">
@@ -13,7 +12,6 @@
           <td >{{ user.username  }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.first_name }}</td>
-          <td>{{ user.last_name }}</td>
         </tr>
       {% empty %}
       <tr><td>Нет пользователей</td></tr>

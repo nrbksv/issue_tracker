@@ -400,11 +400,11 @@
   "model": "tracker.issue",
   "pk": 40,
   "fields": {
-    "summary": "Enhancement  done lorem ipsum dolor sit amet.",
+    "summary": "Project #3 Enhancement  done lorem ipsum dolor sit amet.",
     "description": "",
     "status": 6,
     "created_at": "2021-03-27T14:16:03.209Z",
-    "updated_at": "2021-03-27T14:16:03.210Z",
+    "updated_at": "2021-04-14T11:43:00.530Z",
     "project": 3,
     "types": [
       5
@@ -446,11 +446,11 @@
   "model": "tracker.issue",
   "pk": 43,
   "fields": {
-    "summary": "New issue enhancement",
+    "summary": "Project #3 New issue enhancement",
     "description": "",
     "status": 4,
     "created_at": "2021-03-31T09:36:55.603Z",
-    "updated_at": "2021-03-31T09:36:55.603Z",
+    "updated_at": "2021-04-14T11:43:32.961Z",
     "project": 3,
     "types": [
       4,
@@ -492,75 +492,17 @@
 },
 {
   "model": "tracker.issue",
-  "pk": 47,
+  "pk": 51,
   "fields": {
-    "summary": "новый задача",
-    "description": "",
+    "summary": "PM Dev new issue",
+    "description": "Qwe qwe",
     "status": 4,
-    "created_at": "2021-03-31T15:47:01.325Z",
-    "updated_at": "2021-03-31T15:47:01.325Z",
-    "project": 5,
+    "created_at": "2021-04-14T09:05:02.754Z",
+    "updated_at": "2021-04-14T11:44:39.096Z",
+    "project": 10,
     "types": [
       4
     ]
-  }
-},
-{
-  "model": "tracker.issue",
-  "pk": 48,
-  "fields": {
-    "summary": "Новый задача улучшение",
-    "description": ".......................",
-    "status": 4,
-    "created_at": "2021-04-09T08:18:58.411Z",
-    "updated_at": "2021-04-09T08:18:58.411Z",
-    "project": 7,
-    "types": [
-      4,
-      5
-    ]
-  }
-},
-{
-  "model": "tracker.type",
-  "pk": 4,
-  "fields": {
-    "type_issue": "Задача"
-  }
-},
-{
-  "model": "tracker.type",
-  "pk": 5,
-  "fields": {
-    "type_issue": "Улучшение"
-  }
-},
-{
-  "model": "tracker.type",
-  "pk": 6,
-  "fields": {
-    "type_issue": "Ошибка"
-  }
-},
-{
-  "model": "tracker.status",
-  "pk": 4,
-  "fields": {
-    "status": "Новый"
-  }
-},
-{
-  "model": "tracker.status",
-  "pk": 5,
-  "fields": {
-    "status": "В процессе"
-  }
-},
-{
-  "model": "tracker.status",
-  "pk": 6,
-  "fields": {
-    "status": "Сделано"
   }
 },
 {
@@ -614,73 +556,89 @@
     "is_deleted": false,
     "users": [
       [
-        "student"
+        "developer"
       ]
     ]
   }
 },
 {
   "model": "tracker.project",
-  "pk": 5,
+  "pk": 10,
   "fields": {
-    "project": "qwe",
-    "project_description": "qwe",
-    "date_start": "2021-01-01",
-    "date_finish": null,
-    "is_deleted": true,
-    "users": []
-  }
-},
-{
-  "model": "tracker.project",
-  "pk": 6,
-  "fields": {
-    "project": "Проект 5",
-    "project_description": "Проект 5",
-    "date_start": "2021-04-08",
+    "project": "PM project",
+    "project_description": "PM",
+    "date_start": "2021-04-12",
     "date_finish": null,
     "is_deleted": false,
-    "users": []
+    "users": [
+      [
+        "developer"
+      ],
+      [
+        "project_manager"
+      ],
+      [
+        "team_lead"
+      ]
+    ]
   }
 },
 {
   "model": "tracker.project",
-  "pk": 7,
+  "pk": 11,
   "fields": {
-    "project": "Проект ...........",
-    "project_description": "....................................",
-    "date_start": "2021-01-01",
-    "date_finish": null,
-    "is_deleted": true,
-    "users": []
-  }
-},
-{
-  "model": "tracker.project",
-  "pk": 8,
-  "fields": {
-    "project": "Project...User...test",
-    "project_description": "QWE",
-    "date_start": "2021-04-10",
-    "date_finish": null,
-    "is_deleted": true,
-    "users": []
-  }
-},
-{
-  "model": "tracker.project",
-  "pk": 9,
-  "fields": {
-    "project": "Student's project",
-    "project_description": "QWE",
+    "project": "PM #2",
+    "project_description": "ASD",
     "date_start": "2021-04-10",
     "date_finish": null,
     "is_deleted": false,
     "users": [
       [
-        "student"
+        "project_manager"
       ]
     ]
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 4,
+  "fields": {
+    "type_issue": "Задача"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 5,
+  "fields": {
+    "type_issue": "Улучшение"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 6,
+  "fields": {
+    "type_issue": "Ошибка"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 4,
+  "fields": {
+    "status": "Новый"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 5,
+  "fields": {
+    "status": "В процессе"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 6,
+  "fields": {
+    "status": "Сделано"
   }
 }
 ]

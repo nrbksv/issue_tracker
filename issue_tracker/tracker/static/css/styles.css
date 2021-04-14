@@ -43,6 +43,13 @@ body {
 .i-btn {
     background-color: #757474;
 }
+.disabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+    pointer-events: none;
+}
 .form-error {
     color: red;
     font-size: 12px;

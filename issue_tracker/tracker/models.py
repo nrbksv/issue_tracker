@@ -81,5 +81,10 @@ class Project(models.Model):
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
 
+        permissions = [
+            ('add_project_user', 'Can add user to project'),
+            ('delete_project_user', 'Can delete user from project')
+        ]
+
     def __str__(self):
         return f'{self.project}'
