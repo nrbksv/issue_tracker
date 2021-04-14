@@ -8,16 +8,21 @@
     <div class="card mt-2">
         <div class="card-header d-flex flex-row justify-content-between card-h">
             <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
-            <div class="mr-3"><span class="mr-2"><b>Дата окончания: </b></span>
-                    {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}
-            <a class="icons ml-2" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
-            <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#modal"><i class="far fa-trash-alt"></i></button>
+            <div class="mr-3">
+                {% if project.date_finish %}<span class="mr-2"><b>Дата окончания: </b></span>{{ project.date_finish }}{% endif %}
+                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#Modal_add"><i class="fas fa-user-plus"></i></button>
+                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#Modal_remove"><i class="fas fa-user-minus"></i></button>
+                <a class="icons ml-2" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
+                <button class="link border-0 icons i-btn" data-bs-toggle="modal" data-bs-target="#modal"><i class="far fa-trash-alt"></i></button>
             </div>
         </div>
         <div class="card-body">
           <p class="card-text font-italic"><b>Проект:</b><span class="ml-2">{{ project.project }}</span></p>
           <hr>
           <p class="card-text font-italic">{{ project.project_description }}</p>
+            <hr>
+            <p class="card-text font-italic mt-5"><b>Пользователи:</b></p>
+            {% include 'partial/users.html' %}
             <hr>
             <p class="card-text font-italic mt-5"><b>Задачи:</b></p>
             {% for issue in issues %}
@@ -29,4 +34,6 @@
         </div>
     </div>
     {% include 'projects/delete.html' %}
+    {% include 'projects/add_user.html' %}
+    {% include 'projects/remove_user.html' %}
 {% endblock %}

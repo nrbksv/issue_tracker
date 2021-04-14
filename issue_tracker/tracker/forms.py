@@ -70,6 +70,16 @@ class ProjectForm(ModelForm):
         }
 
 
+class ProjectUserForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['users']
+
+        widgets = {
+            'users': CheckboxSelectMultiple
+        }
+
+
 class SearchForm(forms.Form):
     search = forms.CharField(
         max_length=100,

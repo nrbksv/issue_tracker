@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 
@@ -67,6 +69,7 @@ class Status(models.Model):
 
 
 class Project(models.Model):
+    users = models.ManyToManyField(get_user_model(), related_name='projects', verbose_name='Пользователь')
     project = models.CharField(max_length=50, blank=False, null=False, verbose_name='Проект')
     project_description = models.TextField(max_length=1000, blank=False, null=False, verbose_name='Описание')
     date_start = models.DateField(verbose_name='Дата начала')

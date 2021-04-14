@@ -369,14 +369,15 @@
   "model": "tracker.issue",
   "pk": 38,
   "fields": {
-    "summary": "Project #3 new issue",
+    "summary": "Project #3 new issue enhancement",
     "description": "",
     "status": 4,
     "created_at": "2021-03-27T13:29:59.040Z",
-    "updated_at": "2021-03-27T13:29:59.040Z",
+    "updated_at": "2021-04-09T08:17:33.800Z",
     "project": 3,
     "types": [
-      4
+      4,
+      5
     ]
   }
 },
@@ -422,6 +423,101 @@
     "project": 4,
     "types": [
       4
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 42,
+  "fields": {
+    "summary": "Issue enhancement in progress ipsum dolor sit amet.",
+    "description": "",
+    "status": 5,
+    "created_at": "2021-03-31T09:28:04.462Z",
+    "updated_at": "2021-03-31T09:28:04.462Z",
+    "project": 2,
+    "types": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 43,
+  "fields": {
+    "summary": "New issue enhancement",
+    "description": "",
+    "status": 4,
+    "created_at": "2021-03-31T09:36:55.603Z",
+    "updated_at": "2021-03-31T09:36:55.603Z",
+    "project": 3,
+    "types": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 44,
+  "fields": {
+    "summary": "Project #3 New issue enhancement",
+    "description": "",
+    "status": 4,
+    "created_at": "2021-03-31T09:42:22.603Z",
+    "updated_at": "2021-03-31T09:42:22.603Z",
+    "project": 3,
+    "types": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 46,
+  "fields": {
+    "summary": "qweqwe",
+    "description": "",
+    "status": 4,
+    "created_at": "2021-03-31T10:32:33.482Z",
+    "updated_at": "2021-03-31T10:32:33.482Z",
+    "project": 2,
+    "types": [
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 47,
+  "fields": {
+    "summary": "новый задача",
+    "description": "",
+    "status": 4,
+    "created_at": "2021-03-31T15:47:01.325Z",
+    "updated_at": "2021-03-31T15:47:01.325Z",
+    "project": 5,
+    "types": [
+      4
+    ]
+  }
+},
+{
+  "model": "tracker.issue",
+  "pk": 48,
+  "fields": {
+    "summary": "Новый задача улучшение",
+    "description": ".......................",
+    "status": 4,
+    "created_at": "2021-04-09T08:18:58.411Z",
+    "updated_at": "2021-04-09T08:18:58.411Z",
+    "project": 7,
+    "types": [
+      4,
+      5
     ]
   }
 },
@@ -474,7 +570,9 @@
     "project": "Issue tracker.",
     "project_description": "Описание....",
     "date_start": "2021-03-08",
-    "date_finish": null
+    "date_finish": null,
+    "is_deleted": true,
+    "users": []
   }
 },
 {
@@ -484,7 +582,9 @@
     "project": "Ппроект 2",
     "project_description": "......................",
     "date_start": "2021-03-27",
-    "date_finish": null
+    "date_finish": null,
+    "is_deleted": true,
+    "users": []
   }
 },
 {
@@ -492,9 +592,15 @@
   "pk": 3,
   "fields": {
     "project": "Project 3",
-    "project_description": "Project ipsum dolor sit amet, consectetur adipisicing elit. Dolorum est illo, iste libero maxime quo voluptatibus? Aperiam consequuntur eligendi eum.",
+    "project_description": "Project ipsum dolor sit amet, consectetur adipisicing elit. Dolorum est illo, iste libero maxime quo voluptatibus? Aperiam consequuntur eligendi.",
     "date_start": "2021-03-28",
-    "date_finish": null
+    "date_finish": null,
+    "is_deleted": false,
+    "users": [
+      [
+        "student"
+      ]
+    ]
   }
 },
 {
@@ -504,7 +610,77 @@
     "project": "Проект 4",
     "project_description": "Проект 4 ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid error ex harum, ipsam magni minus natus perferendis quo repellat sed, tenetur veritatis, voluptates voluptatibus?",
     "date_start": "2021-01-01",
-    "date_finish": null
+    "date_finish": null,
+    "is_deleted": false,
+    "users": [
+      [
+        "student"
+      ]
+    ]
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 5,
+  "fields": {
+    "project": "qwe",
+    "project_description": "qwe",
+    "date_start": "2021-01-01",
+    "date_finish": null,
+    "is_deleted": true,
+    "users": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 6,
+  "fields": {
+    "project": "Проект 5",
+    "project_description": "Проект 5",
+    "date_start": "2021-04-08",
+    "date_finish": null,
+    "is_deleted": false,
+    "users": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 7,
+  "fields": {
+    "project": "Проект ...........",
+    "project_description": "....................................",
+    "date_start": "2021-01-01",
+    "date_finish": null,
+    "is_deleted": true,
+    "users": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 8,
+  "fields": {
+    "project": "Project...User...test",
+    "project_description": "QWE",
+    "date_start": "2021-04-10",
+    "date_finish": null,
+    "is_deleted": true,
+    "users": []
+  }
+},
+{
+  "model": "tracker.project",
+  "pk": 9,
+  "fields": {
+    "project": "Student's project",
+    "project_description": "QWE",
+    "date_start": "2021-04-10",
+    "date_finish": null,
+    "is_deleted": false,
+    "users": [
+      [
+        "student"
+      ]
+    ]
   }
 }
 ]
