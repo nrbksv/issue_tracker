@@ -30,9 +30,7 @@ class IssueDetail(PermissionRequiredMixin, DetailView):
     def has_permission(self):
         issue = get_object_or_404(Issue, pk=self.kwargs.get('pk'))
         project = issue.project
-        if self.request.user.username != 'admin':
-            return self.request.user in project.users.all() and super().has_permission()
-        return super().has_permission()
+        return self.request.user in project.users.all() and super().has_permission()
 
     def get_queryset(self):
         return super().get_queryset().filter(project__is_deleted=False)
@@ -65,9 +63,7 @@ class IssueUpdate(PermissionRequiredMixin, UpdateView):
     def has_permission(self):
         issue = get_object_or_404(Issue, pk=self.kwargs.get('pk'))
         project = issue.project
-        if self.request.user.username != 'admin':
-            return self.request.user in project.users.all() and super().has_permission()
-        return super().has_permission()
+        return self.request.user in project.users.all() and super().has_permission()
 
     def get_success_url(self):
         return reverse('tracker:issue-detail', kwargs={'pk': self.kwargs.get('pk')})
@@ -82,6 +78,4 @@ class IssueDelete(PermissionRequiredMixin, DeleteView):
     def has_permission(self):
         issue = get_object_or_404(Issue, pk=self.kwargs.get('pk'))
         project = issue.project
-        if self.request.user.username != 'admin':
-            return self.request.user in project.users.all() and super().has_permission()
-        return super().has_permission()
+        return self.request.user in project.users.all() and super().has_permission()

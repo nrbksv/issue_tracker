@@ -29,7 +29,7 @@ class ProjectDetailView(PermissionRequiredMixin, DetailView):
         page = self.request.GET.get('page')
         if page is None:
             page = 1
-        context['form'] = ProjectUserForm()
+        context['form'] = ProjectUserForm(initial={'users': project.users.all()})
         context['issues'] = paginator.get_page(page)
         context['is_paginated'] = True
         context['page_obj'] = Page(project.issues.all(), int(page), paginator)
@@ -62,7 +62,7 @@ class ProjectIssueCreate(PermissionRequiredMixin, CreateView):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if self.request.user.username != 'admin':
+        if self.request.user.username != 'project_manager':
             return self.request.user in project.users.all() and super().has_permission()
         return super().has_permission()
 
@@ -84,7 +84,7 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if self.request.user.username != 'admin':
+        if self.request.user.username != 'project_manager':
             return self.request.user in project.users.all() and super().has_permission()
         return super().has_permission()
 
@@ -104,9 +104,7 @@ class ProjectUserAdd(PermissionRequiredMixin, View):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if self.request.user.username != 'admin':
-            return self.request.user in project.users.all() and super().has_permission()
-        return super().has_permission()
+        return self.request.user in project.users.all() and super().has_permission()
 
     def post(self, request, *args, **kwargs):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -123,9 +121,7 @@ class ProjectUserRemove(PermissionRequiredMixin, View):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if self.request.user.username != 'admin':
-            return self.request.user in project.users.all() and super().has_permission()
-        return super().has_permission()
+        return self.request.user in project.users.all() and super().has_permission()
 
     def post(self, request, *args, **kwargs):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
