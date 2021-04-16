@@ -9,7 +9,7 @@
   <tbody class="border">
       {% for user in project.users.all %}
         <tr>
-          <td ><a href="{% url 'accounts:user-profile' user.id %}">{{ user.username  }}</a></td>
+          <td ><a class="text-dark" href="{% url 'accounts:user-profile' user.id %}">{{ user.username  }}</a></td>
           <td>{{ user.email }}</td>
           <td>{{ user.first_name }}</td>
         </tr>

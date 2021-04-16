@@ -62,7 +62,7 @@ class ProjectIssueCreate(PermissionRequiredMixin, CreateView):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if self.request.user.username != 'project_manager':
+        if not self.request.user.groups.filter(name='Project manager'):
             return self.request.user in project.users.all() and super().has_permission()
         return super().has_permission()
 
@@ -84,7 +84,7 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        if self.request.user.username != 'project_manager':
+        if not self.request.user.groups.filter(name='Project manager'):
             return self.request.user in project.users.all() and super().has_permission()
         return super().has_permission()
 

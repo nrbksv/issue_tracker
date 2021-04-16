@@ -2,7 +2,7 @@
 
 {% block links %}
     {% if perms.tracker.add_issue %}
-    <a href="{% url 'tracker:project-issue' project.id %}" class="btn btn-secondary mt-1" style="width: 100%">
+    <a href="{% url 'tracker:project-issue' project.id %}" class="btn btn-secondary mt-1 {% if request.user not in project.users.all %}disabled{% endif %}" style="width: 100%">
         <i class="far fa-plus-square">  Добавить задачу</i></a>
     {% endif %}
 {% endblock %}
@@ -36,7 +36,7 @@
           <p class="card-text font-italic">{{ project.project_description }}</p>
             <hr>
             <p class="card-text font-italic mt-5"><b>Пользователи:</b></p>
-            {% include 'partial/users.html' %}
+            {% include 'projects/project_users.html' %}
             <hr>
             <p class="card-text font-italic mt-5"><b>Задачи:</b></p>
             {% for issue in issues %}

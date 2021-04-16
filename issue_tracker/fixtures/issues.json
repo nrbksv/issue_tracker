@@ -506,6 +506,48 @@
   }
 },
 {
+  "model": "tracker.type",
+  "pk": 4,
+  "fields": {
+    "type_issue": "Задача"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 5,
+  "fields": {
+    "type_issue": "Улучшение"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 6,
+  "fields": {
+    "type_issue": "Ошибка"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 4,
+  "fields": {
+    "status": "Новый"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 5,
+  "fields": {
+    "status": "В процессе"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 6,
+  "fields": {
+    "status": "Сделано"
+  }
+},
+{
   "model": "tracker.project",
   "pk": 1,
   "fields": {
@@ -597,48 +639,6 @@
         "project_manager"
       ]
     ]
-  }
-},
-{
-  "model": "tracker.type",
-  "pk": 4,
-  "fields": {
-    "type_issue": "Задача"
-  }
-},
-{
-  "model": "tracker.type",
-  "pk": 5,
-  "fields": {
-    "type_issue": "Улучшение"
-  }
-},
-{
-  "model": "tracker.type",
-  "pk": 6,
-  "fields": {
-    "type_issue": "Ошибка"
-  }
-},
-{
-  "model": "tracker.status",
-  "pk": 4,
-  "fields": {
-    "status": "Новый"
-  }
-},
-{
-  "model": "tracker.status",
-  "pk": 5,
-  "fields": {
-    "status": "В процессе"
-  }
-},
-{
-  "model": "tracker.status",
-  "pk": 6,
-  "fields": {
-    "status": "Сделано"
   }
 }
 ]

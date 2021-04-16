@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr class="border">
+      <th scope="col"></th>
+      <th scope="col">Пользователь</th>
+      <th scope="col">Имя</th>
+      <th scope="col"><i class="fas fa-envelope"> e-mail</i></th>
+        <th scope="col"><i class="fab fa-github"> GitHub</i></th>
+    </tr>
+  </thead>
+  <tbody class="border">
+      {% for user in user_obj %}
+          {% if user.username != 'admin' %}
+        <tr class="table-secondary">
+            <td><img class="rounded" src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}/uploads/avatars/user_.png{% endif %}"  width="50" height="50" alt="Нет фото"></td>
+          <td class="align-middle"><a class="text-dark" href="{% url 'accounts:user-profile' user.id %}">{{ user.username  }}</a></td>
+            <td class="align-middle">{% if user.first_name %}{{ user.first_name }}{% endif %}</td>
+            <td class="align-middle">{{ user.email }}</td>
+          <td class="align-middle">{% if user.profile.git_hub %}<a class="text-dark" href="{{ user.profile.git_hub }}"><i class="fas fa-share"></i></a>{% else %}<i class="fas fa-ellipsis-h"></i>{% endif %}</td>
+        </tr>
+          {% endif %}
+      {% empty %}
+      <tr><td>Нет пользователей</td></tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

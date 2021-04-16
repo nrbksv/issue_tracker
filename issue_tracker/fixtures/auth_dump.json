@@ -6,6 +6,11 @@
     "name": "Project manager",
     "permissions": [
       [
+        "view_profile",
+        "accounts",
+        "profile"
+      ],
+      [
         "add_issue",
         "tracker",
         "issue"
@@ -64,6 +69,11 @@
   "fields": {
     "name": "Team Lead",
     "permissions": [
+      [
+        "view_profile",
+        "accounts",
+        "profile"
+      ],
       [
         "add_issue",
         "tracker",
@@ -136,7 +146,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$GmGZER8LxQ1A$Ncbpkm11qt85Kf41JEwCdX17AckOu2ktUnxjuCuGjyE=",
-    "last_login": "2021-04-14T11:47:13.436Z",
+    "last_login": "2021-04-17T06:02:40.690Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -144,7 +154,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2021-03-26T14:26:51.354Z",
+    "date_joined": "2021-03-26T14:26:51Z",
     "groups": [],
     "user_permissions": []
   }
@@ -154,7 +164,7 @@
   "pk": 11,
   "fields": {
     "password": "pbkdf2_sha256$216000$m1VsAt4wEvce$1BJZjCe6QSa+zh/6pmp7Ct7QA1BL7YOFqJzBYKK45Eg=",
-    "last_login": "2021-04-14T11:46:32.893Z",
+    "last_login": "2021-04-14T11:46:32Z",
     "is_superuser": false,
     "username": "student",
     "first_name": "student",
@@ -162,8 +172,12 @@
     "email": "student@gmail.com",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-04-12T11:53:24.312Z",
-    "groups": [],
+    "date_joined": "2021-04-12T11:53:24Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
     "user_permissions": []
   }
 },
@@ -172,7 +186,7 @@
   "pk": 12,
   "fields": {
     "password": "pbkdf2_sha256$216000$HeyaTXPSLjxn$hKNYri1rjHbQGmJXb6BioP++UWsclbwCFvQS1GYEc24=",
-    "last_login": "2021-04-14T04:12:45.549Z",
+    "last_login": "2021-04-14T04:12:45Z",
     "is_superuser": false,
     "username": "qwe",
     "first_name": "qwe",
@@ -180,8 +194,12 @@
     "email": "qwe@gmail.com",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-04-12T11:54:50.065Z",
-    "groups": [],
+    "date_joined": "2021-04-12T11:54:50Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
     "user_permissions": []
   }
 },
@@ -190,7 +208,7 @@
   "pk": 13,
   "fields": {
     "password": "pbkdf2_sha256$216000$5OVFAI3hP3qk$Qo/ZwVpjNfhYmMdOEUm/+vzqGnBk4tenRRoXHMdp8q8=",
-    "last_login": "2021-04-14T11:31:25.545Z",
+    "last_login": "2021-04-16T13:33:35Z",
     "is_superuser": false,
     "username": "developer",
     "first_name": "dev",
@@ -212,7 +230,7 @@
   "pk": 14,
   "fields": {
     "password": "pbkdf2_sha256$216000$5M0TkCDUHzoj$6MUCY0vlT7sfcaGxtvRgCrig2pTIKPD5FjuneyNebak=",
-    "last_login": "2021-04-14T11:22:14.157Z",
+    "last_login": "2021-04-16T13:34:38Z",
     "is_superuser": false,
     "username": "project_manager",
     "first_name": "pro",
@@ -234,7 +252,7 @@
   "pk": 15,
   "fields": {
     "password": "pbkdf2_sha256$216000$xsyGwSqH2AtX$2Eh0w3c1umJj6VjxYmo0vUMkmrilRdTWhqozxmJPKpE=",
-    "last_login": "2021-04-14T07:16:21.408Z",
+    "last_login": "2021-04-16T16:26:34Z",
     "is_superuser": false,
     "username": "team_lead",
     "first_name": "lead",
@@ -248,6 +266,46 @@
         "Team Lead"
       ]
     ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$1XLHOpVNcOQM$ipIAMEuM2/aAZdpw5XuC8oijMIXeDF93BGH4WF+QnKA=",
+    "last_login": "2021-04-16T15:42:40Z",
+    "is_superuser": false,
+    "username": "user",
+    "first_name": "user",
+    "last_name": "",
+    "email": "user@user.us",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-16T15:42:40Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$fuuYRZAzHuKE$To1922yYYt3UTheE6DNhpo3XahYtNXyeQFce9JAvV7Q=",
+    "last_login": "2021-04-16T16:26:04.515Z",
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "tst",
+    "last_name": "tst",
+    "email": "test@test.te",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-16T16:26:04.029Z",
+    "groups": [],
     "user_permissions": []
   }
 }
