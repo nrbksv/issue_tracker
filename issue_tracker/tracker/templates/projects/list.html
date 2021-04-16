@@ -9,19 +9,7 @@
 
 {% block content %}
       {% for project in projects %}
-            <div class="card mt-2">
-                <div class="card-header d-flex flex-row justify-content-between card-h">
-                    <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
-                    <div><span class="mr-2"><b>Дата окончания: </b></span>
-                        {% if project.date_finish %}{{ project.date_finish }}{% else %}...{% endif %}
-                    </div>
-                </div>
-                <a class="text-dark {% if not perms.tracker.view_project %}disabled{% endif %}" href="{% url 'tracker:project-detail' project.id %}">
-                    <div class="card-body card-b cb-p">
-                      <p class="card-text font-italic"><b>Проект:</b><span class="ml-2">{{ project.project }}</span></p>
-                    </div>
-                </a>
-            </div>
+        {% include 'partial/projects.html' %}
       {% empty %}
       <h2>Проектов нет</h2>
       {% endfor %}

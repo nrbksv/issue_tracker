@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="card mt-2">
+        <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="{{ user_obj.profile.avatar.url }}" height="150" alt="pic">
+            </div>
+            <div class="col-md-10 pl-5 pt-3">
+                <p class="card-text font-italic"><b>Пользователь: </b> {{ user_obj.username }}</p>
+                {% if user_obj.first_name %}<p class="card-text font-italic"><b>Имя: </b> {{ user_obj.first_name }}</p>{% endif %}
+                {% if user_obj.lasr_name %}<p class="card-text font-italic"><b>Фамилия: </b> {{ user_obj.last_name }}</p>{% endif %}
+                <p class="card-text font-italic"><i class="far fa-envelope"> {{ user_obj.email }}</i></p>
+                {% if user_obj.profile.git_hub %}
+                    <p class="card-text font-italic"><a class="text-dark" href="{{ user_obj.profile.git_hub }}">
+                    <i class="fab fa-github"></i><span class="ml-2">{{ user_obj.profile.git_hub }}</span></a></p>
+                {% endif %}
+                {% if user_obj.profile.about %}<p class="card-text font-italic"><b>О себе: </b> {{ user_obj.profile.about }}</p>{% endif %}
+            </div>
+        </div>
+            <hr>
+            <p class="card-text font-italic mt-5"><b>Проекты:</b></p>
+      {% for project in user_obj.projects.all %}
+        {% include 'partial/projects.html' %}
+      {% empty %}
+      <h2>Проектов нет</h2>
+      {% endfor %}
+        {% if is_paginated %}
+            {% include 'partial/paginate.html' %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
