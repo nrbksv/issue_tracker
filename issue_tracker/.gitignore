@@ -131,3 +131,4 @@ venv/
 .vscode/
 .idea/
 *.sqlite3
+uploads/
