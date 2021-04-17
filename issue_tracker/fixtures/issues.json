@@ -614,6 +614,9 @@
     "is_deleted": false,
     "users": [
       [
+        "student"
+      ],
+      [
         "developer"
       ],
       [

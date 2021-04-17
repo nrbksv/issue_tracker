@@ -13,19 +13,15 @@
             <div><span class="mr-2"><b>Дата начала: </b></span>{{ project.date_start }}</div>
             <div class="mr-3">
                 {% if project.date_finish %}<span class="mr-2"><b>Дата окончания: </b></span>{{ project.date_finish }}{% endif %}
-                {% if perms.tracker.add_project_user %}
-                    <button class="link border-0 icons i-btn {% if request.user not in project.users.all %}disabled{% endif %}" data-bs-toggle="modal" data-bs-target="#Modal_add">
-                        <i class="fas fa-user-plus"></i></button>
-                {% endif %}
-                {% if perms.tracker.delete_project_user %}
-                    <button class="link border-0 icons i-btn {% if request.user not in project.users.all %}disabled{% endif %}" data-bs-toggle="modal" data-bs-target="#Modal_remove">
-                        <i class="fas fa-user-minus"></i></button>
+                {% if perms.tracker.project_user_update %}
+                    <button class="link border-0 icons i-btn {% if user not in project.users.all %}disabled{% endif %}" data-bs-toggle="modal" data-bs-target="#Modal_add">
+                        <i class="fas fa-user-cog"></i></button>
                 {% endif %}
                 {% if perms.tracker.change_project %}
-                    <a class="icons ml-2 {% if request.user.username != 'project_manager' %}{% if request.user not in project.users.all %}disabled{% endif %}{% endif %}" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
+                    <a class="icons ml-2 {% if user.groups.name != 'Project manager' %}{% if user not in project.users.all %}disabled{% endif %}{% endif %}" href="{% url 'tracker:project-update' project.id %}"><i class="far fa-edit"></i></a>
                 {% endif %}
                 {% if perms.tracker.delete_project %}
-                    <button class="link border-0 icons i-btn {% if request.user.username != 'project_manager' %}{% if request.user not in project.users.all %}disabled{% endif %}{% endif %}" data-bs-toggle="modal" data-bs-target="#modal">
+                    <button class="link border-0 icons i-btn {% if user.groups.name != 'Project manager' %}{% if user not in project.users.all %}disabled{% endif %}{% endif %}" data-bs-toggle="modal" data-bs-target="#modal">
                         <i class="far fa-trash-alt"></i></button>
                 {% endif %}
             </div>
@@ -48,6 +44,5 @@
         </div>
     </div>
     {% include 'projects/delete.html' %}
-    {% include 'projects/add_user.html' %}
-    {% include 'projects/remove_user.html' %}
+    {% include 'projects/project_users_update.html' %}
 {% endblock %}

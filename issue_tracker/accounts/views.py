@@ -49,7 +49,7 @@ class UserListView(PermissionRequiredMixin, ListView):
     template_name = 'users.html'
     context_object_name = 'user_obj'
     paginate_by = 10
-    permission_required = 'accounts.view_profile'
+    permission_required = 'accounts.view_users_list'
 
     def get_queryset(self):
         return get_user_model().objects.all()

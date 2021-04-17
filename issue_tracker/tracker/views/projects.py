@@ -99,36 +99,17 @@ class ProjectDeleteView(PermissionRequiredMixin, SoftDeleteView):
     permission_required = 'tracker.delete_project'
 
 
-class ProjectUserAdd(PermissionRequiredMixin, View):
-    permission_required = 'tracker.add_project_user'
+class ProjectUsersUpdate(PermissionRequiredMixin, UpdateView):
+    template_name = None
+    form_class = ProjectUserForm
+    model = Project
+    permission_required = 'tracker.project_user_update'
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
         return self.request.user in project.users.all() and super().has_permission()
 
-    def post(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        for user_id in self.request.POST.getlist('users'):
-            user = get_object_or_404(User, pk=user_id)
-            project.users.add(user)
-            project.save()
-
-        return redirect('tracker:project-detail', pk=project.id)
+    def get_success_url(self):
+        return reverse('tracker:project-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class ProjectUserRemove(PermissionRequiredMixin, View):
-    permission_required = 'tracker.delete_project_user'
-
-    def has_permission(self):
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        return self.request.user in project.users.all() and super().has_permission()
-
-    def post(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        for user_id in self.request.POST.getlist('remove_list'):
-            user = get_object_or_404(User, pk=user_id)
-            if user != self.request.user:
-                project.users.remove(user)
-                project.save()
-
-        return redirect('tracker:project-detail', pk=project.id)

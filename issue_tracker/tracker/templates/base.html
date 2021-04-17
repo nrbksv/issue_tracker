@@ -32,7 +32,7 @@
             {% if perms.tracker.view_issue %}
                 <a href="{% url 'tracker:issues-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-tasks">  Все задачи</i></a>
             {% endif %}
-            {% if perms.accounts.view_profile %}
+            {% if perms.accounts.view_users_list %}
                 <a href="{% url 'accounts:user-list' %}" class="btn btn-secondary mt-1" style="width: 100%"><i class="fas fa-user-friends">  Все пользователи</i></a>
             {% endif %}
               {% block links %}

@@ -11,6 +11,11 @@
         "profile"
       ],
       [
+        "view_users_list",
+        "accounts",
+        "profile"
+      ],
+      [
         "add_issue",
         "tracker",
         "issue"
@@ -36,11 +41,6 @@
         "project"
       ],
       [
-        "add_project_user",
-        "tracker",
-        "project"
-      ],
-      [
         "change_project",
         "tracker",
         "project"
@@ -51,7 +51,7 @@
         "project"
       ],
       [
-        "delete_project_user",
+        "project_user_update",
         "tracker",
         "project"
       ],
@@ -71,6 +71,11 @@
     "permissions": [
       [
         "view_profile",
+        "accounts",
+        "profile"
+      ],
+      [
+        "view_users_list",
         "accounts",
         "profile"
       ],
@@ -95,12 +100,7 @@
         "issue"
       ],
       [
-        "add_project_user",
-        "tracker",
-        "project"
-      ],
-      [
-        "delete_project_user",
+        "project_user_update",
         "tracker",
         "project"
       ],
@@ -118,6 +118,11 @@
   "fields": {
     "name": "Developer",
     "permissions": [
+      [
+        "view_profile",
+        "accounts",
+        "profile"
+      ],
       [
         "add_issue",
         "tracker",
@@ -146,7 +151,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$GmGZER8LxQ1A$Ncbpkm11qt85Kf41JEwCdX17AckOu2ktUnxjuCuGjyE=",
-    "last_login": "2021-04-17T06:02:40.690Z",
+    "last_login": "2021-04-19T10:55:19.320Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -208,7 +213,7 @@
   "pk": 13,
   "fields": {
     "password": "pbkdf2_sha256$216000$5OVFAI3hP3qk$Qo/ZwVpjNfhYmMdOEUm/+vzqGnBk4tenRRoXHMdp8q8=",
-    "last_login": "2021-04-16T13:33:35Z",
+    "last_login": "2021-04-19T10:56:32.439Z",
     "is_superuser": false,
     "username": "developer",
     "first_name": "dev",
@@ -230,7 +235,7 @@
   "pk": 14,
   "fields": {
     "password": "pbkdf2_sha256$216000$5M0TkCDUHzoj$6MUCY0vlT7sfcaGxtvRgCrig2pTIKPD5FjuneyNebak=",
-    "last_login": "2021-04-16T13:34:38Z",
+    "last_login": "2021-04-19T10:35:07.811Z",
     "is_superuser": false,
     "username": "project_manager",
     "first_name": "pro",
@@ -252,7 +257,7 @@
   "pk": 15,
   "fields": {
     "password": "pbkdf2_sha256$216000$xsyGwSqH2AtX$2Eh0w3c1umJj6VjxYmo0vUMkmrilRdTWhqozxmJPKpE=",
-    "last_login": "2021-04-16T16:26:34Z",
+    "last_login": "2021-04-19T10:51:51.039Z",
     "is_superuser": false,
     "username": "team_lead",
     "first_name": "lead",

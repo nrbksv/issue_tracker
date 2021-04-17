@@ -6,6 +6,5 @@ from tracker.views.projects import (
         ProjectIssueCreate,
         ProjectUpdateView,
         ProjectDeleteView,
-        ProjectUserAdd,
-        ProjectUserRemove
+        ProjectUsersUpdate,
     )
