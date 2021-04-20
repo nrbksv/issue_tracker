@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card mt-2 mx-auto" style="width: 90% ">
+    <div class="card-header text-center bg-secondary text-white">
+        <b><i>Редактирование профиля</i></b>
+    </div>
+    <div class="card-body">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% include 'partial/form.html' %}
+            {% include 'partial/form.html' with form=profile_form fields_only=True %}
+            <div class="text-center">
+                <hr>
+                <input class="btn btn-secondary" type="submit" value="Сохранить">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

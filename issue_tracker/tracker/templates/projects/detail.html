@@ -40,7 +40,9 @@
                 {% empty %}
                 <h1 class="text-center mt-5">Нет задач</h1>
             {% endfor %}
-        {% include 'partial/paginate.html' %}
+        {% if is_paginated %}
+            {% include 'partial/paginate.html' %}
+        {% endif %}
         </div>
     </div>
     {% include 'projects/delete.html' %}

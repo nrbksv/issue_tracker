@@ -6,7 +6,12 @@
         <div class="card-body">
         <div class="row">
             <div class="col-md-2">
-                <img  class="rounded" src="{% if user_obj.profile.avatar %}{{ user_obj.profile.avatar.url }}{% else %}/uploads/avatars/user_.png{% endif %}" width="150" height="150" alt="Нет фото">
+                <img  class="rounded" src="{% if user_obj.profile.avatar %}{{ user_obj.profile.avatar.url }}{% else %}/uploads/avatars/user_.png{% endif %}" width="150" height="150" alt="user_pic">
+                {% if user.id == user_obj.id %}
+                <div>
+                    <a class="btn btn-warning btn-sm mt-2" style="width: 150px" href="{% url 'accounts:user-update' %}"><i class="fas fa-pen-alt"> Изменить</i></a>
+                </div>
+                {% endif %}
             </div>
             <div class="col-md-10 pl-5">
                 <p class="card-text font-italic"><b>Пользователь: </b> {{ user_obj.username }}</p>

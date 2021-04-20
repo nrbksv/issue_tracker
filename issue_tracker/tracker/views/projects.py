@@ -1,8 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.contrib.auth.models import User
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, View
-from django.shortcuts import get_object_or_404, reverse, redirect
-from django.core.paginator import Paginator, Page
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.shortcuts import get_object_or_404, reverse
+from django.core.paginator import Paginator
 
 from tracker.models import Project
 from tracker.forms import ProjectForm, ProjectIssueForm, ProjectUserForm
@@ -21,18 +20,18 @@ class ProjectDetailView(PermissionRequiredMixin, DetailView):
     template_name = 'projects/detail.html'
     model = Project
     permission_required = 'tracker.view_project'
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        paginator = Paginator(project.issues.all(), 5)
-        page = self.request.GET.get('page')
-        if page is None:
-            page = 1
-        context['form'] = ProjectUserForm(initial={'users': project.users.all()})
-        context['issues'] = paginator.get_page(page)
-        context['is_paginated'] = True
-        context['page_obj'] = Page(project.issues.all(), int(page), paginator)
+        issues = self.object.issues.all()
+        paginator = Paginator(issues, self.paginate_by)
+        page_number = self.request.GET.get('page', 1)
+        page = paginator.get_page(page_number)
+        context['form'] = ProjectUserForm(initial={'users': self.object.users.all()})
+        context['page_obj'] = page
+        context['issues'] = page.object_list
+        context['is_paginated'] = page.has_other_pages()
         return context
 
     def get_queryset(self):
