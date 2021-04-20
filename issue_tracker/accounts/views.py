@@ -1,11 +1,11 @@
-from django.contrib.auth import login, get_user_model
+from django.contrib.auth import login, get_user_model, update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.contrib.auth.models import User
-from accounts.forms import RegisterForm, UserChangeForm, ProfileChangeForm
+from accounts.forms import RegisterForm, UserChangeForm, ProfileChangeForm, PasswordChangeForm
 from accounts.models import Profile
 
 
@@ -90,6 +90,24 @@ class UserChangeView(LoginRequiredMixin, UpdateView):
             form_kwargs['data'] = self.request.POST
             form_kwargs['files'] = self.request.FILES
         return ProfileChangeForm(**form_kwargs)
+
+    def get_success_url(self):
+        return reverse('accounts:user-profile', kwargs={'pk': self.object.pk})
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
+class PasswordChangeView(LoginRequiredMixin, UpdateView):
+    template_name = 'password_change.html'
+    model = get_user_model()
+    form_class = PasswordChangeForm
+    context_object_name = 'user_obj'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        update_session_auth_hash(self.request, self.request.user)
+        return response
 
     def get_success_url(self):
         return reverse('accounts:user-profile', kwargs={'pk': self.object.pk})

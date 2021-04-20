@@ -3,20 +3,19 @@
 
 {% block content %}
     <div class="card mt-2">
+        <div class="card-header border-0 text-right">
+           <a class="icons u mr-2 {% if user.id != user_obj.id %}disabled{% endif %}" href="{% url 'accounts:user-update' %}"><i class="fas fa-user-edit"></i></a>
+            <a class="icons u mr-2 {% if user.id != user_obj.id %}disabled{% endif %}" href="{% url 'accounts:change-password' %}"><i class="fas fa-user-lock"></i></a>
+        </div>
         <div class="card-body">
         <div class="row">
             <div class="col-md-2">
                 <img  class="rounded" src="{% if user_obj.profile.avatar %}{{ user_obj.profile.avatar.url }}{% else %}/uploads/avatars/user_.png{% endif %}" width="150" height="150" alt="user_pic">
-                {% if user.id == user_obj.id %}
-                <div>
-                    <a class="btn btn-warning btn-sm mt-2" style="width: 150px" href="{% url 'accounts:user-update' %}"><i class="fas fa-pen-alt"> Изменить</i></a>
-                </div>
-                {% endif %}
             </div>
             <div class="col-md-10 pl-5">
                 <p class="card-text font-italic"><b>Пользователь: </b> {{ user_obj.username }}</p>
                 {% if user_obj.first_name %}<p class="card-text font-italic"><b>Имя: </b> {{ user_obj.first_name }}</p>{% endif %}
-                {% if user_obj.lasr_name %}<p class="card-text font-italic"><b>Фамилия: </b> {{ user_obj.last_name }}</p>{% endif %}
+                {% if user_obj.last_name %}<p class="card-text font-italic"><b>Фамилия: </b> {{ user_obj.last_name }}</p>{% endif %}
                 <p class="card-text font-italic"><i class="fas fa-envelope"></i><span class="ml-3">{{ user_obj.email }}</span></p>
                 {% if user_obj.profile.git_hub %}
                     <p class="card-text font-italic"><a class="text-dark" href="{{ user_obj.profile.git_hub }}">
