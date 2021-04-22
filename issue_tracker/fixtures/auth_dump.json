@@ -151,7 +151,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$GmGZER8LxQ1A$Ncbpkm11qt85Kf41JEwCdX17AckOu2ktUnxjuCuGjyE=",
-    "last_login": "2021-04-19T10:55:19.320Z",
+    "last_login": "2021-04-19T11:17:53.602Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -212,12 +212,12 @@
   "model": "auth.user",
   "pk": 13,
   "fields": {
-    "password": "pbkdf2_sha256$216000$5OVFAI3hP3qk$Qo/ZwVpjNfhYmMdOEUm/+vzqGnBk4tenRRoXHMdp8q8=",
-    "last_login": "2021-04-19T10:56:32.439Z",
+    "password": "pbkdf2_sha256$216000$D3bvhXHkNaPJ$b4CwZFDomzZZho1j4o9G9V0avDxhiyoZf6QCMx42DJM=",
+    "last_login": "2021-04-20T12:53:14.221Z",
     "is_superuser": false,
     "username": "developer",
     "first_name": "dev",
-    "last_name": "",
+    "last_name": "devov",
     "email": "dev@mad.dev",
     "is_staff": false,
     "is_active": true,
@@ -235,7 +235,7 @@
   "pk": 14,
   "fields": {
     "password": "pbkdf2_sha256$216000$5M0TkCDUHzoj$6MUCY0vlT7sfcaGxtvRgCrig2pTIKPD5FjuneyNebak=",
-    "last_login": "2021-04-19T10:35:07.811Z",
+    "last_login": "2021-04-20T12:47:10.594Z",
     "is_superuser": false,
     "username": "project_manager",
     "first_name": "pro",
@@ -257,7 +257,7 @@
   "pk": 15,
   "fields": {
     "password": "pbkdf2_sha256$216000$xsyGwSqH2AtX$2Eh0w3c1umJj6VjxYmo0vUMkmrilRdTWhqozxmJPKpE=",
-    "last_login": "2021-04-19T10:51:51.039Z",
+    "last_login": "2021-04-20T12:07:56.232Z",
     "is_superuser": false,
     "username": "team_lead",
     "first_name": "lead",
@@ -279,7 +279,7 @@
   "pk": 16,
   "fields": {
     "password": "pbkdf2_sha256$216000$1XLHOpVNcOQM$ipIAMEuM2/aAZdpw5XuC8oijMIXeDF93BGH4WF+QnKA=",
-    "last_login": "2021-04-16T15:42:40Z",
+    "last_login": "2021-04-19T11:19:09.219Z",
     "is_superuser": false,
     "username": "user",
     "first_name": "user",
@@ -301,7 +301,7 @@
   "pk": 17,
   "fields": {
     "password": "pbkdf2_sha256$216000$fuuYRZAzHuKE$To1922yYYt3UTheE6DNhpo3XahYtNXyeQFce9JAvV7Q=",
-    "last_login": "2021-04-16T16:26:04.515Z",
+    "last_login": "2021-04-19T11:19:44.359Z",
     "is_superuser": false,
     "username": "test",
     "first_name": "tst",
@@ -312,6 +312,102 @@
     "date_joined": "2021-04-16T16:26:04.029Z",
     "groups": [],
     "user_permissions": []
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "developer"
+    ],
+    "avatar": "avatars/spaun.jpg",
+    "git_hub": "https://github.com/",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, officia."
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "project_manager"
+    ],
+    "avatar": "avatars/dv.jpg",
+    "git_hub": "https://github.com/",
+    "about": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "student"
+    ],
+    "avatar": "avatars/faceless.jpg",
+    "git_hub": "https://github.com/",
+    "about": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "team_lead"
+    ],
+    "avatar": "avatars/skull.jpg",
+    "git_hub": "https://github.com/",
+    "about": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "avatar": "",
+    "git_hub": null,
+    "about": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "qwe"
+    ],
+    "avatar": "",
+    "git_hub": null,
+    "about": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "user"
+    ],
+    "avatar": "",
+    "git_hub": null,
+    "about": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "test"
+    ],
+    "avatar": "",
+    "git_hub": null,
+    "about": null
   }
 }
 ]
